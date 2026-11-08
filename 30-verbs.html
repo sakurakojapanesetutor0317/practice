@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><title>30 Japanese Verbs | Sakura Japanese</title><meta content="Watch the 30 Japanese Verbs video, practise with flashcards and a conjugation quiz, and download the study sheet." name="description"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&amp;family=Quicksand:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<style>
+/* ===== Sakura Japanese · 30 Japanese Verbs =====
+   Colours come from the 30-verb video. One stylesheet: tokens → base → header → hero → sections → video → practice → study sheet → download → footer → responsive. */
+:root{
+  --pink:#DE548E; --pink-soft:#F5B8D1; --pink-tint:#FCE6F0;
+  --blush:#FFF0F7; --blush-2:#FFF7FB; --card:#fff;
+  --brown:#64483F; --plum:#75447F; --muted:#80516F; --line:#EDD6E9;
+  --radius-lg:28px; --radius-md:20px; --radius-sm:12px;
+  --shadow:0 18px 44px rgba(117,68,127,.10);
+  --shadow-sm:0 6px 18px rgba(117,68,127,.07);
+  --content:1040px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:16px}
+body{margin:0;color:var(--brown);font:600 16px/1.7 Quicksand,"Hiragino Sans","Noto Sans JP",sans-serif;background:var(--blush)}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:3px solid var(--plum);outline-offset:3px}
+h1,h2,h3{font-family:"Baloo 2",Quicksand,sans-serif;font-weight:800;margin:0;color:var(--brown)}
+p{margin:0}
+[lang=ja]{font-family:"Hiragino Maru Gothic ProN","Hiragino Sans","Noto Sans JP",sans-serif}
+.container{width:min(var(--content),calc(100% - 40px));margin:0 auto}
+
+/* ---------- header ---------- */
+.site-header{position:absolute;top:0;left:0;right:0;z-index:2}
+.header-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:72px}
+.brand{display:flex;align-items:center;gap:8px;font:800 20px "Baloo 2",sans-serif;color:var(--brown)}
+.brand-flower{color:var(--pink);font-size:22px;line-height:1}
+.site-nav{display:flex;gap:4px}
+.site-nav a{padding:7px 14px;border-radius:99px;font-size:14px;font-weight:700;color:var(--muted)}
+.site-nav a:hover{background:var(--card);color:var(--pink)}
+
+/* ---------- hero: title + one verb shown in its three forms ---------- */
+.hero{position:relative;isolation:isolate;overflow:hidden;padding:100px 0 88px}
+.hero::before,.hero::after{content:"";position:absolute;z-index:-1;pointer-events:none;background-repeat:no-repeat;background-size:contain}
+.hero::before{background-image:url("assets/sakura_top_left.png");width:clamp(380px,44vw,600px);aspect-ratio:980/540;top:-24px;left:-175px;background-position:left top;opacity:.95}
+/* Bottom-right sakura belongs to the whole page, not the hero. */
+main{position:relative;isolation:isolate}
+main::after{content:"";position:absolute;z-index:0;pointer-events:none;background:url("assets/sakura_bottom_right.png") right bottom/contain no-repeat;width:clamp(380px,42vw,560px);aspect-ratio:872/521;bottom:0;right:0;opacity:.95}
+main>.hero,main>.section{position:relative;z-index:1}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);align-items:center;gap:56px;padding-top:48px}
+.hero h1{font-size:clamp(46px,6.4vw,80px);line-height:.98;letter-spacing:-.02em;color:var(--plum)}
+.hero h1 .number{display:block;font-size:1.5em;line-height:.9;color:var(--pink)}
+.forms-line{font:800 clamp(18px,2.2vw,22px)/1.3 "Baloo 2",sans-serif;color:var(--brown);margin:14px 0 12px}
+.lead{max-width:470px;color:var(--muted);margin-bottom:28px}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px}
+
+/* the specimen: たべる → たべます → たべて */
+.specimen{position:relative;max-width:380px;justify-self:center;width:100%;text-align:left}
+.specimen::before{content:"";position:absolute;inset:14px -14px -14px 14px;border-radius:var(--radius-lg);background:var(--pink-tint);border:1px solid var(--line);z-index:-1}
+.specimen-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius-lg);box-shadow:var(--shadow);padding:24px 26px 20px}
+.specimen-head{display:flex;align-items:baseline;justify-content:space-between;gap:10px;padding-bottom:12px;border-bottom:1px dashed var(--line)}
+.specimen-head strong{font:800 30px/1 "Baloo 2",sans-serif;color:var(--plum)}
+.specimen-head span{font-size:13px;font-weight:700;color:var(--muted)}
+.chain{list-style:none;margin:0;padding:6px 0 0}
+.chain li{position:relative;display:grid;grid-template-columns:92px 1fr;align-items:center;gap:12px;padding:12px 0}
+.chain li+li::before{content:"";position:absolute;left:44px;top:-9px;width:2px;height:18px;background:var(--pink-soft);border-radius:2px}
+.chain .label{justify-self:start;font:800 12px/1.2 "Baloo 2",sans-serif;color:var(--pink);background:var(--blush);border:1px solid var(--line);border-radius:99px;padding:5px 10px;white-space:nowrap}
+.chain strong{display:block;font-size:28px;line-height:1.2;color:var(--brown)}
+.chain small{display:block;font-size:13px;font-weight:700;color:var(--muted)}
+
+/* ---------- buttons ---------- */
+.button{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:50px;padding:12px 26px;border-radius:99px;background:var(--pink);color:#fff;font-weight:800;font-size:15.5px;box-shadow:0 5px 0 var(--pink-soft);transition:transform .15s,box-shadow .15s}
+.button:hover{transform:translateY(-2px);box-shadow:0 7px 0 var(--pink-soft)}
+.button:active{transform:translateY(2px);box-shadow:0 2px 0 var(--pink-soft)}
+.button.ghost{background:var(--card);color:var(--plum);border:2px solid var(--line);box-shadow:none}
+.button.ghost:hover{border-color:var(--pink-soft);color:var(--pink)}
+
+/* ---------- sections: 1 watch → 2 practise → 3 review ---------- */
+.section{padding:72px 0}
+.hero + .section{margin-top:160px}
+.section + .section{margin-top:120px}
+.section-heading{display:grid;grid-template-columns:auto 1fr;column-gap:18px;align-items:center;margin-bottom:28px}
+.step{grid-row:span 2;display:grid;place-items:center;width:58px;height:58px;border-radius:50%;background:var(--card);border:1px solid var(--line);box-shadow:var(--shadow-sm);color:var(--pink)}
+.step svg{width:28px;height:28px}
+.section-heading h2{font-size:clamp(28px,3.4vw,38px);line-height:1.15;color:var(--plum)}
+.section-heading p{color:var(--muted)}
+
+/* ---------- video ---------- */
+.video-frame{background:var(--card);border:1px solid var(--line);border-radius:var(--radius-lg);box-shadow:var(--shadow);padding:12px}
+.video{position:relative;aspect-ratio:16/9;border-radius:var(--radius-md);overflow:hidden;background:var(--blush)}
+.video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.soon{position:absolute;inset:0;display:grid;place-items:center;padding:20px;text-align:center;color:var(--muted);font-weight:800}
+
+/* ---------- practice: how-to beside the game ---------- */
+.practice{display:flex;flex-direction:column;gap:24px;align-items:stretch}
+.howto{position:static;padding:0 4px}
+.howto h3{font-size:20px;color:var(--plum);margin-bottom:12px}
+.howto ol{list-style:none;counter-reset:how;margin:0 0 14px;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.howto li{counter-increment:how;display:grid;grid-template-columns:30px 1fr;gap:10px;font-size:15px;line-height:1.55}
+.howto li::before{content:counter(how);display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--pink);color:#fff;font:800 14px/1 "Baloo 2",sans-serif}
+.howto b{color:var(--plum)}
+.howto .open-game{display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:800;color:var(--pink);border-bottom:2px solid var(--pink-soft);padding-bottom:1px}
+.howto .open-game:hover{border-color:var(--pink)}
+.game-stage{background:var(--pink-tint);border:1px solid var(--line);border-radius:var(--radius-lg);padding:clamp(12px,2vw,22px)}
+.game-frame{display:block;width:100%;max-width:none;min-height:440px;margin:0 auto;border:0}
+
+/* ---------- study sheet ---------- */
+.sheet-head{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:28px}
+.sheet-head .section-heading{margin-bottom:0}
+.tabs{display:inline-flex;gap:4px;padding:5px;background:var(--card);border:1px solid var(--line);border-radius:99px;box-shadow:var(--shadow-sm)}
+.tabs button{min-width:92px;padding:9px 18px;border:0;border-radius:99px;background:transparent;color:var(--muted);font:800 15px Quicksand,sans-serif;cursor:pointer}
+.tabs button:hover{color:var(--pink)}
+.tabs button[aria-selected=true]{background:var(--pink);color:#fff}
+.verb-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.verb-list[hidden]{display:none}
+.verb{background:var(--card);border:1px solid var(--line);border-radius:var(--radius-md);box-shadow:var(--shadow-sm);padding:18px 20px 20px}
+.verb-top{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.verb-no{display:grid;place-items:center;min-width:34px;height:34px;padding:0 6px;border-radius:99px;background:var(--blush);color:var(--pink);font:800 14px/1 "Baloo 2",sans-serif}
+.verb h3{font-size:23px;line-height:1.2;color:var(--plum)}
+.verb-group{margin-left:auto;white-space:nowrap;font-size:12px;font-weight:800;color:var(--muted);border:1px solid var(--line);border-radius:99px;padding:2px 10px}
+.forms{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));background:var(--blush-2);border:1px solid var(--line);border-radius:var(--radius-sm)}
+.form{display:flex;flex-direction:column;align-items:center;text-align:center;padding:10px 4px 11px;min-width:0}
+.form+.form{border-left:1px dashed var(--line)}
+.form-label{font:800 11.5px/1.2 "Baloo 2",sans-serif;color:var(--pink);white-space:nowrap}
+.form strong{font-size:clamp(16px,1.8vw,19px);line-height:1.35;margin:6px 0 1px;overflow-wrap:anywhere}
+.form small{font-size:12px;font-weight:700;color:var(--muted);overflow-wrap:anywhere}
+.example{margin-top:14px;padding-left:14px;border-left:3px solid var(--pink-soft)}
+.ex-label{font:800 12px/1.3 "Baloo 2",sans-serif;color:var(--pink)}
+.ex-en{font-size:14px;margin-top:2px}
+.ex-jp{font-size:16px;font-weight:700;margin-top:3px;line-height:1.6}
+.chunk{white-space:nowrap}
+.hl{color:var(--pink)}
+.ex-rom{font-size:12.5px;color:var(--muted)}
+
+/* ---------- PDF download, below the sheet ---------- */
+.download{display:flex;align-items:center;justify-content:space-between;gap:16px 24px;flex-wrap:wrap;margin-top:28px;padding:22px 26px;background:var(--card);border:1px solid var(--line);border-radius:var(--radius-md);box-shadow:var(--shadow-sm)}
+.download strong{display:block;font:800 20px/1.3 "Baloo 2",sans-serif;color:var(--plum)}
+.download span{font-size:14px;color:var(--muted)}
+
+.footer{padding:40px 16px 48px;text-align:center;color:var(--muted);font-size:13px}
+.footer strong{font:800 18px "Baloo 2",sans-serif;color:var(--brown)}
+
+/* ---------- responsive ---------- */
+@media (max-width:960px){
+  .hero-grid{gap:32px}
+  .hero::before{left:-250px}
+  .practice{gap:18px}
+  .howto{position:static;padding:0}
+  .howto ol{grid-template-columns:repeat(3,minmax(0,1fr));margin-bottom:14px}
+}
+@media (max-width:780px){
+  .hero{padding:84px 0 64px}
+  .hero-grid{grid-template-columns:1fr;padding-top:24px;text-align:center}
+  .hero h1 .number{display:inline;font-size:1em}
+  .lead{margin-left:auto;margin-right:auto}
+  .hero-actions{justify-content:center}
+  .hero::before{width:340px;left:-150px;top:-10px;opacity:.75}
+  main::after{width:340px;right:0;bottom:0;opacity:.75}
+  .howto ol{grid-template-columns:1fr}
+  .verb-list{grid-template-columns:1fr}
+  .sheet-head{display:block}
+  .sheet-head .section-heading{margin-bottom:18px}
+  .tabs{display:flex}
+  .tabs button{flex:1;min-width:0}
+}
+@media (max-width:560px){
+  .container{width:calc(100% - 28px)}
+  .site-nav{display:none}
+  .section{padding:52px 0}
+  .hero + .section{margin-top:100px}
+  .section + .section{margin-top:80px}
+  .section-heading{column-gap:14px}
+  .step{width:48px;height:48px}
+  .step svg{width:24px;height:24px}
+  .hero-actions .button{flex:1 1 100%}
+  .video-frame{padding:8px;border-radius:22px}
+  .video{border-radius:16px}
+  .game-stage{border-radius:22px}
+  .verb{padding:16px 14px 18px}
+  .download{padding:20px}
+  .download .button{width:100%}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.button{transition:none}}
+</style></head><body>
+<header class="site-header"><div class="container header-inner"><a class="brand" href="index.html"><span aria-hidden="true" class="brand-flower">✿</span><span>Sakura Japanese</span></a><nav aria-label="On this page" class="site-nav"><a href="#watch">Video</a><a href="#practice">Practice</a><a href="#study-sheet">Study sheet</a></nav></div></header>
+<main>
+<section class="hero"><div class="container hero-grid">
+<div class="hero-text"><h1><span class="number">30</span> Japanese Verbs</h1><p class="forms-line">Dictionary, Masu and Te Forms</p><p class="lead">Learn 30 everyday Japanese verbs. Watch the video, practise the conjugations, and keep a study sheet for review.</p><div class="hero-actions"><a class="button" href="#watch">Watch the video</a><a class="button ghost" href="#practice">Start practising</a></div></div>
+<div aria-label="Example: the verb eat in three forms" class="specimen"><div class="specimen-card"><div class="specimen-head"><strong>eat</strong><span>Group 2</span></div><ol class="chain"><li><span class="label">Dictionary</span><span><strong lang="ja">たべる</strong><small>taberu</small></span></li><li><span class="label">Masu</span><span><strong lang="ja">たべます</strong><small>tabemasu</small></span></li><li><span class="label">Te</span><span><strong lang="ja">たべて</strong><small>tabete</small></span></li></ol></div></div>
+</div></section>
+<section class="section" id="watch"><div class="container"><div class="section-heading"><span class="step"><svg aria-hidden="true" fill="none" viewbox="0 0 48 48"><circle cx="24" cy="24" r="19" stroke="currentColor" stroke-width="3.2"></circle><path d="M20 15.5L33 24L20 32.5V15.5Z" fill="currentColor" stroke="currentColor" stroke-linejoin="round" stroke-width="2"></path></svg></span><h2>Watch &amp; learn</h2><p>Pause and try saying each form before the answer appears.</p></div>
+<div class="video-frame"><div class="video" id="video"><iframe src="https://www.youtube.com/embed/NBj9jCX2Veo?si=NmNhfDylZs00oB26" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" loading="lazy" allowfullscreen></iframe></div></div></div></section>
+<section class="section" id="practice"><div class="container"><div class="section-heading"><span class="step"><svg aria-hidden="true" fill="none" viewbox="0 0 48 48"><path d="M13.5 16H34.5C39 16 41 19 42 24L43 32C43.5 36 40 38 37 36L31 32H17L11 36C8 38 4.5 36 5 32L6 24C7 19 9 16 13.5 16Z" stroke="currentColor" stroke-linejoin="round" stroke-width="3.2"></path><path d="M13 24H23M18 19V29" stroke="currentColor" stroke-linecap="round" stroke-width="3.2"></path><circle cx="31" cy="22" fill="currentColor" r="2.3"></circle><circle cx="36" cy="27" fill="currentColor" r="2.3"></circle></svg></span><h2>Flashcards &amp; Conjugation Quiz</h2><p>Flip the cards and test all 30 verbs right here.</p></div>
+<div class="practice"><div class="howto"><h3>How to practise</h3><ol>
+<li><span><b>Choose a mode.</b> Study with flashcards or take the conjugation quiz.</span></li>
+<li><span><b>Pick a set.</b> Practise all 30, a random 10, or missed verbs.</span></li>
+<li><span><b>Practise.</b> Flip flashcards or choose an answer. Toggle romaji as needed.</span></li>
+</ol><a class="open-game" href="#practice" id="game-link">Open the game in a new tab</a></div>
+<div class="game-stage"><iframe class="game-frame" id="embedded-game" loading="lazy" scrolling="no" srcdoc="&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;&lt;head&gt;&lt;meta charset=&quot;utf-8&quot;/&gt;&lt;meta content=&quot;width=device-width, initial-scale=1.0&quot; name=&quot;viewport&quot;/&gt;&lt;title&gt;30 Japanese Verbs — Flashcards &amp;amp; Quiz&lt;/title&gt;&lt;link href=&quot;https://fonts.googleapis.com&quot; rel=&quot;preconnect&quot;/&gt;&lt;link crossorigin=&quot;&quot; href=&quot;https://fonts.gstatic.com&quot; rel=&quot;preconnect&quot;/&gt;&lt;link href=&quot;https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&amp;amp;family=Quicksand:wght@500;600;700&amp;amp;display=swap&quot; rel=&quot;stylesheet&quot;/&gt;&lt;style&gt;
+/* ===== 30 Japanese Verbs · Flashcards &amp; Conjugation Quiz =====
+   Sakura palette shared with the lesson page. Order: tokens → base → standalone header → menu → round → flashcards → quiz → result. */
+*{box-sizing:border-box}
+:root{
+  --pink:#DE548E; --pink-soft:#F5B8D1; --pink-tint:#FCE4EF;
+  --blush:#FFF0F7; --blush-2:#FFF7FB; --panel:#fff;
+  --ink:#64483F; --plum:#75447F; --muted:#80516F; --line:#EDD6E9;
+  --ok:#3E9B66; --ok-bg:#E9F6EE; --ng:#D9566A; --ng-bg:#FDECEF;
+  --shadow:0 10px 26px rgba(117,68,127,.08);
+  /* names used by the original markup/JS-era rules */
+  --accent:var(--pink); --accent2:var(--pink-soft); --muted-ink:var(--muted);
+}
+html,body{margin:0;padding:0}
+body{font:600 16px/1.5 Quicksand,&quot;Hiragino Sans&quot;,&quot;Noto Sans JP&quot;,sans-serif;color:var(--ink);min-height:100vh;
+  background:radial-gradient(circle at 0 0,#FFE3EF 0,transparent 340px),var(--blush);
+  display:flex;flex-direction:column;align-items:center;padding:20px 14px 56px}
+#app{width:100%;max-width:800px}
+button{font:inherit;font-weight:800;border:0;border-radius:16px;padding:13px 20px;cursor:pointer;color:inherit;
+  transition:transform .08s ease,background-color .15s ease,border-color .15s ease,box-shadow .15s ease}
+button:focus-visible{outline:3px solid var(--plum);outline-offset:3px}
+ruby rt{color:var(--muted);font-size:.5em;font-weight:700}
+
+/* ---------- Standalone page header (hidden when embedded) ---------- */
+.homebar{position:sticky;top:10px;z-index:20;display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:10px}
+.home-btn,.user-pill{display:inline-flex;align-items:center;gap:6px;background:var(--panel);color:var(--ink);border:1px solid var(--line);border-radius:999px;padding:8px 16px;font-size:.85rem;font-weight:800;text-decoration:none}
+.home-btn:hover{border-color:var(--pink-soft);color:var(--pink)}
+.switch-user{color:var(--pink);text-decoration:underline;cursor:pointer}
+h1{margin:10px 0 0;text-align:center;font:800 clamp(30px,7vw,40px)/1.1 &quot;Baloo 2&quot;,Quicksand,sans-serif;color:var(--plum)}
+.sub{text-align:center;color:var(--muted);font-size:.85rem;font-weight:700;margin:4px 0 14px}
+
+/* ---------- Menu ---------- */
+.screen{background:var(--panel);border:1px solid var(--line);border-radius:26px;box-shadow:var(--shadow);padding:24px 22px 22px;margin:0 auto 16px;text-align:center}
+.screen h2{margin:0;font:800 1.7rem/1.2 &quot;Baloo 2&quot;,Quicksand,sans-serif;color:var(--plum)}
+.screen p{color:var(--muted);font-size:.9rem}
+.screen input[type=&quot;text&quot;]{width:100%;padding:13px 16px;margin:14px 0;font:inherit;font-size:17px;text-align:center;color:var(--ink);background:var(--blush-2);border:2px solid var(--line);border-radius:14px}
+/* the game script sets display:block/none inline; keep the grid unless it is hidden */
+#menuScreen:not([style*=&quot;none&quot;]){display:grid!important;grid-template-columns:1fr 1fr;gap:10px}
+#menuScreen&gt;*{grid-column:1/-1}
+#menuScreen&gt;.menu-btn:nth-of-type(2),#menuScreen&gt;.menu-btn:nth-of-type(3){grid-column:auto}
+/* mode switch: one segmented track */
+.mode-picker{display:flex;gap:4px;margin:8px 0 4px;padding:5px;background:var(--blush);border:1px solid var(--line);border-radius:999px}
+.mode-choice{flex:1;min-width:0;padding:11px 8px;border-radius:999px;background:transparent;color:var(--muted);font-size:.92rem}
+.mode-choice:hover{color:var(--pink)}
+.mode-choice.active{background:var(--panel);color:var(--pink);box-shadow:0 2px 8px rgba(117,68,127,.12)}
+.wrong-count{font-size:13px;color:var(--muted);font-weight:700;min-height:0}
+.wrong-count:empty{display:none}
+.menu-btn{display:block;width:100%;margin:0;line-height:1.3}
+.menu-btn:nth-of-type(1){background:var(--pink);color:#fff;font-size:1.05rem;padding:15px 20px;box-shadow:0 4px 0 var(--pink-soft)}
+.menu-btn:nth-of-type(2),.menu-btn:nth-of-type(3){background:var(--panel);color:var(--plum);border:2px solid var(--line);font-size:.92rem;padding:12px 12px}
+.menu-btn:nth-of-type(2):hover,.menu-btn:nth-of-type(3):hover{border-color:var(--pink-soft);color:var(--pink);background:var(--blush-2)}
+.menu-btn:active,.primary-btn:active,#loginBtn:active,.play-again:active,.know-btn:active{transform:translateY(2px)}
+.primary-btn,#loginBtn{display:block;width:100%;margin-top:12px;background:var(--pink);color:#fff;box-shadow:0 4px 0 var(--pink-soft)}
+.secondary-btn{display:block;width:100%;margin-top:12px;background:var(--panel);color:var(--ink);border:2px solid var(--line)}
+.secondary-btn:hover{border-color:var(--pink-soft);color:var(--pink)}
+
+/* ---------- Round status: score, progress and options in one quiet bar ---------- */
+.meta-row{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin-bottom:8px}
+.pill{display:inline-flex;align-items:center;gap:6px;background:var(--panel);border:1px solid var(--line);border-radius:999px;padding:6px 14px;font-size:.88rem;font-weight:800;color:var(--plum)}
+.pill .star{color:#E9A53B}
+.controls{flex-direction:row;flex-wrap:wrap;justify-content:center;gap:4px 18px;margin:0 auto 14px;font-size:.84rem;font-weight:700;color:var(--muted)}
+.controls label{display:inline-flex;align-items:center;gap:6px;cursor:pointer}
+.controls input{width:17px;height:17px;margin:0;accent-color:var(--pink)}
+
+/* ---------- Flashcards ---------- */
+.verb-flash-prompt{background:var(--panel);border:1px solid var(--line);border-radius:24px;box-shadow:var(--shadow);padding:18px 16px 16px;text-align:center;margin-bottom:12px}
+.qlabel{display:inline-block;background:var(--blush);color:var(--pink);border:1px solid var(--line);border-radius:999px;padding:5px 15px;font-size:1rem;font-weight:800}
+.qlabel.back-label{color:var(--plum)}
+.verb-flash-prompt .english{font:800 clamp(28px,7vw,38px)/1.15 &quot;Baloo 2&quot;,Quicksand,sans-serif;color:var(--ink);margin-top:6px;overflow-wrap:anywhere}
+.verb-group{display:inline-block;font-size:1rem;font-weight:800;color:var(--muted);margin-top:5px}
+.verb-flash-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-bottom:14px}
+.verb-flash-card{min-width:0;min-height:168px;display:flex;flex-direction:column;align-items:center;justify-content:space-between;gap:8px;padding:14px 6px 12px;text-align:center;
+  color:var(--ink);background:var(--blush-2);border:2px dashed var(--pink-soft);border-radius:20px}
+.verb-flash-card:hover{background:var(--blush)}
+.verb-flash-card.flipped{background:var(--panel);border:2px solid var(--pink);box-shadow:var(--shadow)}
+.verb-flash-card:focus-visible{outline:3px solid var(--plum);outline-offset:2px}
+.verb-flash-label{font-size:clamp(13px,2.4vw,16px);font-weight:800;color:var(--pink);white-space:nowrap}
+.verb-flash-face{font-size:clamp(22px,4.4vw,30px);font-weight:800;line-height:1.35;overflow-wrap:anywhere;color:var(--pink-soft)}
+.verb-flash-card.flipped .verb-flash-face{color:var(--ink)}
+.verb-flash-hint{font-size:11px;font-weight:700;color:var(--muted)}
+.judge-row{display:none;gap:10px;width:100%}
+.judge-row button{flex:1;padding:14px 10px}
+.know-btn{background:var(--pink);color:#fff;box-shadow:0 4px 0 var(--pink-soft)}
+.learn-btn{background:var(--panel);color:var(--plum);border:2px solid var(--line)}
+.learn-btn:hover{border-color:var(--pink-soft);color:var(--pink)}
+.flip-card{cursor:pointer;min-height:230px;justify-content:center;user-select:none}
+.flip-card.flipping{animation:flip .35s ease}
+.tap-hint{font-size:.8rem;font-weight:700;color:var(--pink);margin-top:8px}
+#flipBtn{margin-top:0}
+
+/* ---------- Conjugation quiz ---------- */
+.quiz-container{width:100%;margin:0 auto}
+.card{position:relative;display:flex;flex-direction:column;align-items:center;gap:6px;background:var(--panel);border:1px solid var(--line);border-radius:24px;box-shadow:var(--shadow);padding:22px 18px 16px;margin:0 auto 12px}
+#question{font-size:clamp(30px,8vw,40px);font-weight:800;line-height:1.3;text-align:center;color:var(--ink)}
+#question.back-side{font-size:26px;line-height:1.35}
+#romaji{width:100%;margin-top:6px;padding-top:10px;border-top:1px dashed var(--line);text-align:center;font-size:1.25rem;font-weight:700;color:var(--muted)}
+.form-meaning{font-size:1rem;font-weight:650;color:var(--muted);text-align:center;line-height:1.5;margin:7px 8px 3px;max-width:95%;overflow-wrap:anywhere}
+.form-meaning:empty{display:none}
+#emojiDisplay{font-size:44px;line-height:1}
+#exDisplay{font-size:12px;color:var(--muted);font-weight:600}
+#answers{display:grid;grid-template-columns:1fr 1fr;gap:10px;width:100%;margin-top:4px}
+#answers&gt;.secondary-btn,#answers&gt;.judge-row{grid-column:1/-1}
+.answer{width:100%;min-height:68px;padding:14px 12px;font-size:1.3rem;text-align:center;color:var(--ink);background:var(--panel);border:2px solid var(--line);border-radius:16px}
+.answer .answer-rom{display:block;font-size:18px;font-weight:700;color:var(--muted);line-height:1.35;margin-top:3px;overflow-wrap:anywhere}
+.answer:hover:not(:disabled){border-color:var(--pink);background:var(--blush-2);transform:translateY(-1px)}
+.answer:disabled{cursor:default}
+.correct{background:var(--ok-bg)!important;border-color:var(--ok)!important;color:#256B45;animation:bounce .45s}
+.wrong{background:var(--ng-bg)!important;border-color:var(--ng)!important;color:#A2343F;animation:shake .45s}
+#message{min-height:28px;margin-top:10px;text-align:center;font-size:1.05rem;font-weight:800;color:var(--plum)}
+#message:empty{min-height:0;margin:0}
+
+/* save-for-later controls (kept for compatibility with the shared game template) */
+.save-toggle{position:absolute;top:14px;right:14px;width:38px;height:38px;padding:0;display:flex;align-items:center;justify-content:center;border-radius:50%;border:2px solid var(--line);background:var(--blush-2);color:var(--muted);font-size:18px;line-height:1}
+.save-toggle.saved{background:#FFF4D6;border-color:#E9A53B;color:#B07A12;animation:bounce .4s}
+.saved-item{display:flex;align-items:center;gap:10px;background:var(--blush-2);border:1px solid var(--line);border-radius:14px;padding:10px 12px;margin-bottom:8px;text-align:left}
+.saved-item .emoji{font-size:24px}
+.saved-item .info{flex:1;min-width:0}
+.saved-item .word{font-weight:800}
+.saved-item .meaning{font-size:.82rem;color:var(--muted)}
+.saved-item .remove-btn{width:30px;height:30px;padding:0;border-radius:50%;background:var(--ng-bg);color:#A2343F;font-size:14px;flex-shrink:0}
+.saved-empty{color:var(--muted);font-size:.9rem;padding:10px 0 4px}
+
+/* ---------- Result ---------- */
+#result{display:none;background:var(--panel);border:1px solid var(--line);border-radius:26px;box-shadow:var(--shadow);text-align:center;padding:26px 22px 22px;animation:fadeIn .4s}
+#result h2{margin:0;font:800 1.6rem/1.2 &quot;Baloo 2&quot;,Quicksand,sans-serif;color:var(--plum)}
+#stars{display:block;font-size:34px;letter-spacing:2px;margin:10px 0 2px}
+#result p{margin:6px 0 0;font-size:1.15rem;font-weight:800;color:var(--ink)}
+#result p.hint{display:none;margin:14px 0 0;padding:10px 14px;font-size:.86rem;font-weight:700;line-height:1.45;color:var(--plum);background:var(--blush-2);border:1px solid var(--line);border-radius:14px}
+.result-buttons{display:flex;gap:10px;margin-top:18px}
+.play-again,.back-menu{display:none;flex:1;margin:0}
+.play-again{background:var(--pink);color:#fff;box-shadow:0 4px 0 var(--pink-soft)}
+.back-menu{background:var(--panel);color:var(--plum);border:2px solid var(--line)}
+.back-menu:hover{border-color:var(--pink-soft);color:var(--pink)}
+
+/* romaji add-on (shown when &quot;Show Romaji&quot; is ticked) */
+.verb-flash-rom{font-size:18px;font-weight:700;color:var(--muted);line-height:1.2;overflow-wrap:anywhere}
+.verb-flash-rom:empty{display:none}
+.question-rom{font-size:1.25rem;font-weight:700;color:var(--muted);margin-top:-4px}
+.question-rom:empty{display:none}
+
+/* ---------- Motion ---------- */
+@keyframes bounce{0%{transform:scale(1)}35%{transform:scale(1.04)}60%{transform:scale(.98)}100%{transform:scale(1)}}
+@keyframes shake{0%,100%{transform:translateX(0)}20%{transform:translateX(-5px)}40%{transform:translateX(5px)}60%{transform:translateX(-5px)}80%{transform:translateX(5px)}}
+@keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@keyframes flip{0%{transform:rotateY(0)}50%{transform:rotateY(90deg)}100%{transform:rotateY(0)}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+/* ---------- Narrow screens ---------- */
+@media (max-width:400px){
+  body{padding-left:10px;padding-right:10px}
+  .screen{padding:20px 16px 18px}
+  #menuScreen&gt;.menu-btn:nth-of-type(2),#menuScreen&gt;.menu-btn:nth-of-type(3){grid-column:1/-1}
+  .mode-choice{font-size:.84rem;padding:10px 4px}
+  .verb-flash-grid{gap:6px}
+  .verb-flash-card{min-height:150px;padding:12px 3px 10px}
+  #answers{grid-template-columns:1fr}
+  .result-buttons{flex-direction:column}
+}
+
+/* ---------- Embedded in the lesson page: the page supplies the background and title ---------- */
+html,body{min-height:0;background:transparent!important}
+body{padding:4px 4px 16px}
+.homebar{display:none}
+&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;div id=&quot;app&quot;&gt;
+&lt;div class=&quot;sub&quot; id=&quot;subtitle&quot;&gt;Flashcards &amp;amp; Conjugation Quiz&lt;/div&gt;
+&lt;div class=&quot;screen&quot; id=&quot;menuScreen&quot;&gt;&lt;h2&gt;Choose a practice mode !&lt;/h2&gt;&lt;div class=&quot;mode-picker&quot;&gt;&lt;button class=&quot;mode-choice active&quot; id=&quot;flashTab&quot; onclick=&quot;chooseMode('flash')&quot;&gt;📖 Flashcards&lt;/button&gt;&lt;button class=&quot;mode-choice&quot; id=&quot;quizTab&quot; onclick=&quot;chooseMode('quiz')&quot;&gt;🔄 Conjugation Quiz&lt;/button&gt;&lt;/div&gt;&lt;div class=&quot;wrong-count&quot; id=&quot;wrongCountDisplay&quot;&gt;&lt;/div&gt;&lt;button class=&quot;menu-btn&quot; onclick=&quot;start(30)&quot;&gt;🆕 Start All 30 Verbs&lt;/button&gt;&lt;button class=&quot;menu-btn&quot; onclick=&quot;start(10)&quot;&gt;🎲 Random 10&lt;/button&gt;&lt;button class=&quot;menu-btn&quot; onclick=&quot;startReview()&quot;&gt;🔁 Review Still Learning / Missed&lt;/button&gt;&lt;/div&gt;
+&lt;div class=&quot;meta-row&quot; id=&quot;metaRow&quot; style=&quot;display:none&quot;&gt;&lt;div class=&quot;pill&quot;&gt;&lt;span class=&quot;star&quot;&gt;⭐&lt;/span&gt; &lt;span id=&quot;scoreTitle&quot;&gt;Known&lt;/span&gt; &lt;span id=&quot;scoreCorrect&quot;&gt;0&lt;/span&gt; / &lt;span id=&quot;scoreAttempted&quot;&gt;0&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;pill&quot;&gt;📝 &lt;span id=&quot;unitTitle&quot;&gt;Card&lt;/span&gt; &lt;span id=&quot;qNum&quot;&gt;1&lt;/span&gt; / &lt;span id=&quot;qTotal&quot;&gt;30&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;controls&quot; id=&quot;controlsArea&quot; style=&quot;display:none&quot;&gt;&lt;label&gt;&lt;input checked=&quot;&quot; id=&quot;romajiMode&quot; onchange=&quot;refreshRomaji()&quot; type=&quot;checkbox&quot;/&gt; Show Romaji&lt;/label&gt;&lt;label&gt;&lt;input checked=&quot;&quot; id=&quot;soundMode&quot; type=&quot;checkbox&quot;/&gt; Sound Effects&lt;/label&gt;&lt;/div&gt;
+&lt;div id=&quot;flashArea&quot; style=&quot;display:none&quot;&gt;
+&lt;div class=&quot;verb-flash-prompt&quot;&gt;&lt;div class=&quot;qlabel&quot;&gt;English&lt;/div&gt;&lt;div class=&quot;english&quot; id=&quot;flashEnglish&quot;&gt;&lt;/div&gt;&lt;div class=&quot;verb-group&quot; id=&quot;flashGroup&quot;&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;verb-flash-grid&quot; id=&quot;flashGrid&quot;&gt;
+&lt;button class=&quot;verb-flash-card&quot; id=&quot;flashCard0&quot; onclick=&quot;flipVerbCard(0)&quot; type=&quot;button&quot;&gt;&lt;span class=&quot;verb-flash-label&quot;&gt;Dictionary Form&lt;/span&gt;&lt;span class=&quot;verb-flash-face&quot; id=&quot;flashFace0&quot;&gt;?&lt;/span&gt;&lt;span class=&quot;verb-flash-hint&quot; id=&quot;flashHint0&quot;&gt;👆 Tap to flip&lt;/span&gt;&lt;/button&gt;
+&lt;button class=&quot;verb-flash-card&quot; id=&quot;flashCard1&quot; onclick=&quot;flipVerbCard(1)&quot; type=&quot;button&quot;&gt;&lt;span class=&quot;verb-flash-label&quot;&gt;Masu Form&lt;/span&gt;&lt;span class=&quot;verb-flash-face&quot; id=&quot;flashFace1&quot;&gt;?&lt;/span&gt;&lt;span class=&quot;verb-flash-hint&quot; id=&quot;flashHint1&quot;&gt;👆 Tap to flip&lt;/span&gt;&lt;/button&gt;
+&lt;button class=&quot;verb-flash-card&quot; id=&quot;flashCard2&quot; onclick=&quot;flipVerbCard(2)&quot; type=&quot;button&quot;&gt;&lt;span class=&quot;verb-flash-label&quot;&gt;Te Form&lt;/span&gt;&lt;span class=&quot;verb-flash-face&quot; id=&quot;flashFace2&quot;&gt;?&lt;/span&gt;&lt;span class=&quot;verb-flash-hint&quot; id=&quot;flashHint2&quot;&gt;👆 Tap to flip&lt;/span&gt;&lt;/button&gt;
+&lt;/div&gt;
+&lt;div class=&quot;judge-row&quot; id=&quot;flashJudgeRow&quot; style=&quot;display:flex&quot;&gt;&lt;button class=&quot;learn-btn&quot; onclick=&quot;judge(false)&quot;&gt;🔁 Still learning&lt;/button&gt;&lt;button class=&quot;know-btn&quot; onclick=&quot;judge(true)&quot;&gt;✅ I knew it!&lt;/button&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;quiz-container&quot; id=&quot;quizContainer&quot; style=&quot;display:none&quot;&gt;&lt;div class=&quot;card&quot; id=&quot;card&quot;&gt;&lt;div class=&quot;qlabel&quot; id=&quot;sideLabel&quot;&gt;English&lt;/div&gt;&lt;div class=&quot;verb-group&quot; id=&quot;verbGroup&quot;&gt;&lt;/div&gt;&lt;div id=&quot;question&quot;&gt;&lt;/div&gt;&lt;div id=&quot;romaji&quot;&gt;&lt;/div&gt;&lt;div class=&quot;tap-hint&quot; id=&quot;tapHint&quot;&gt;👆 Tap to flip&lt;/div&gt;&lt;/div&gt;&lt;div id=&quot;answers&quot;&gt;&lt;button class=&quot;secondary-btn&quot; id=&quot;flipBtn&quot; onclick=&quot;flipCard()&quot;&gt;🔄 Flip Card&lt;/button&gt;&lt;div class=&quot;judge-row&quot; id=&quot;judgeRow&quot;&gt;&lt;button class=&quot;learn-btn&quot; onclick=&quot;judge(false)&quot;&gt;🔁 Still learning&lt;/button&gt;&lt;button class=&quot;know-btn&quot; onclick=&quot;judge(true)&quot;&gt;✅ I knew it!&lt;/button&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div id=&quot;message&quot;&gt;&lt;/div&gt;&lt;div id=&quot;result&quot;&gt;&lt;h2&gt;🎉 Great Job! 🎉&lt;/h2&gt;&lt;div id=&quot;stars&quot;&gt;&lt;/div&gt;&lt;p id=&quot;finalScore&quot;&gt;&lt;/p&gt;&lt;p class=&quot;hint&quot; id=&quot;reviewHint&quot;&gt;&lt;/p&gt;&lt;div class=&quot;result-buttons&quot;&gt;&lt;button class=&quot;play-again&quot; onclick=&quot;restart()&quot;&gt;Play Again&lt;/button&gt;&lt;button class=&quot;back-menu&quot; onclick=&quot;backToMenu()&quot;&gt;Back to Menu&lt;/button&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;script&gt;
+const V=[{&quot;id&quot;: 1, &quot;en&quot;: &quot;eat&quot;, &quot;d&quot;: &quot;たべる&quot;, &quot;m&quot;: &quot;たべます&quot;, &quot;t&quot;: &quot;たべて&quot;, &quot;g&quot;: 2, &quot;teChoices&quot;: [&quot;たべって&quot;, &quot;たべいて&quot;, &quot;たべんて&quot;, &quot;たべて&quot;]}, {&quot;id&quot;: 2, &quot;en&quot;: &quot;drink&quot;, &quot;d&quot;: &quot;のむ&quot;, &quot;m&quot;: &quot;のみます&quot;, &quot;t&quot;: &quot;のんで&quot;, &quot;g&quot;: 1, &quot;teChoices&quot;: [&quot;のみて&quot;, &quot;のって&quot;, &quot;のんで&quot;, &quot;のんて&quot;]}, {&quot;id&quot;: 3, &quot;en&quot;: &quot;buy&quot;, &quot;d&quot;: &quot;かう&quot;, &quot;m&quot;: &quot;かいます&quot;, &quot;t&quot;: &quot;かって&quot;, &quot;g&quot;: 1, &quot;teChoices&quot;: [&quot;かいて&quot;, &quot;かって&quot;, &quot;かうて&quot;, &quot;かんで&quot;]}, {&quot;id&quot;: 4, &quot;en&quot;: &quot;write, draw, paint&quot;, &quot;d&quot;: &quot;かく&quot;, &quot;m&quot;: &quot;かきます&quot;, &quot;t&quot;: &quot;かいて&quot;, &quot;g&quot;: 1, &quot;teChoices&quot;: [&quot;かいて&quot;, &quot;かって&quot;, &quot;かんで&quot;, &quot;かきて&quot;]}, {&quot;id&quot;: 5, &quot;en&quot;: &quot;watch, see&quot;, &quot;d&quot;: &quot;みる&quot;, &quot;m&quot;: &quot;みます&quot;, &quot;t&quot;: &quot;みて&quot;, &quot;g&quot;: 2, &quot;teChoices&quot;: [&quot;みって&quot;, &quot;みいて&quot;, &quot;みんて&quot;, &quot;みて&quot;]}, {&quot;id&quot;: 6, &quot;en&quot;: &quot;hear, listen&quot;, &quot;d&quot;: &quot;きく&quot;, &quot;m&quot;: &quot;ききます&quot;, &quot;t&quot;: &quot;きいて&quot;, &quot;g&quot;: 1, &quot;teChoices&quot;: [&quot;きいて&quot;, &quot;きって&quot;, &quot;きんで&quot;, &quot;ききて&quot;]}, {&quot;id&quot;: 7, &quot;en&quot;: &quot;read&quot;, &quot;d&quot;: &quot;よむ&quot;, &quot;m&quot;: &quot;よみます&quot;, &quot;t&quot;: &quot;よんで&quot;, &quot;g&quot;: 1, &quot;teChoices&quot;: [&quot;よみて&quot;, &quot;よって&quot;, &quot;よんで&quot;, &quot;よんて&quot;]}, {&quot;id&quot;: 8, &quot;en&quot;: &quot;speak&quot;, &quot;d&quot;: &quot;はなす&quot;, &quot;m&quot;: &quot;はなします&quot;, &quot;t&quot;: &quot;はなして&quot;, &quot;g&quot;: 1, &quot;teChoices&quot;: [&quot;はなんで&quot;, &quot;はなって&quot;, &quot;はなして&quot;, &quot;はないて&quot;]}, {&quot;id&quot;: 9, &quot;en&quot;: &quot;go&quot;, &quot;d&quot;: &quot;いく&quot;, &quot;m&quot;: &quot;いきます&quot;, &quot;t&quot;: &quot;いって&quot;, &quot;g&quot;: 1, &quot;teChoices&quot;: [&quot;いいて&quot;, &quot;いきて&quot;, &quot;いんで&quot;, &quot;いって&quot;]}, {&quot;id&quot;: 10, &quot;en&quot;: &quot;come&quot;, &quot;d&quot;: &quot;くる&quot;, &quot;m&quot;: &quot;きます&quot;, &quot;t&quot;: &quot;きて&quot;, &quot;g&quot;: 3, &quot;teChoices&quot;: [&quot;きって&quot;, &quot;きいて&quot;, &quot;きんで&quot;, &quot;きて&quot;]}, {&quot;id&quot;: 11, &quot;en&quot;: &quot;return home&quot;, &quot;d&quot;: &quot;かえる&quot;, &quot;m&quot;: &quot;かえります&quot;, &quot;t&quot;: &quot;かえって&quot;, &quot;g&quot;: 1, &quot;teChoices&quot;: [&quot;かえいて&quot;, &quot;かえって&quot;, &quot;かえりて&quot;, &quot;かえんで&quot;]}, {&quot;id&quot;: 12, &quot;en&quot;: &quot;wake up&quot;, &quot;d&quot;: &quot;おきる&quot;, &quot;m&quot;: &quot;おきます&quot;, &quot;t&quot;: &quot;おきて&quot;, &quot;g&quot;: 2, &quot;teChoices&quot;: [&quot;おきって&quot;, &quot;おきいて&quot;, &quot;おきて&quot;, &quot;おきんて&quot;]}, {&quot;id&quot;: 13, &quot;en&quot;: &quot;sleep&quot;, &quot;d&quot;: &quot;ねる&quot;, &quot;m&quot;: &quot;ねます&quot;, &quot;t&quot;: &quot;ねて&quot;, &quot;g&quot;: 2, &quot;teChoices&quot;: [&quot;ねって&quot;, &quot;ねいて&quot;, &quot;ねて&quot;, &quot;ねんて&quot;]}, {&quot;id&quot;: 14, &quot;en&quot;: &quot;work&quot;, &quot;d&quot;: &quot;はたらく&quot;, &quot;m&quot;: &quot;はたらきます&quot;, &quot;t&quot;: &quot;はたらいて&quot;, &quot;g&quot;: 1, &quot;teChoices&quot;: [&quot;はたらいて&quot;, &quot;はたらって&quot;, &quot;はたらんで&quot;, &quot;はたらきて&quot;]}, {&quot;id&quot;: 15, &quot;en&quot;: &quot;study&quot;, &quot;d&quot;: &quot;べんきょうする&quot;, &quot;m&quot;: &quot;べんきょうします&quot;, &quot;t&quot;: &quot;べんきょうして&quot;, &quot;g&quot;: 3, &quot;teChoices&quot;: [&quot;べんきょうんで&quot;, &quot;べんきょうって&quot;, &quot;べんきょうして&quot;, &quot;べんきょういて&quot;]}, {&quot;id&quot;: 16, &quot;en&quot;: &quot;do, play&quot;, &quot;d&quot;: &quot;する&quot;, &quot;m&quot;: &quot;します&quot;, &quot;t&quot;: &quot;して&quot;, &quot;g&quot;: 3, &quot;teChoices&quot;: []}, {&quot;id&quot;: 17, &quot;en&quot;: &quot;meet, see someone&quot;, &quot;d&quot;: &quot;あう&quot;, &quot;m&quot;: &quot;あいます&quot;, &quot;t&quot;: &quot;あって&quot;, &quot;g&quot;: 1, &quot;teChoices&quot;: [&quot;あいて&quot;, &quot;あって&quot;, &quot;あうて&quot;, &quot;あんで&quot;]}, {&quot;id&quot;: 18, &quot;en&quot;: &quot;wait&quot;, &quot;d&quot;: &quot;まつ&quot;, &quot;m&quot;: &quot;まちます&quot;, &quot;t&quot;: &quot;まって&quot;, &quot;g&quot;: 1, &quot;teChoices&quot;: [&quot;まちて&quot;, &quot;まいて&quot;, &quot;まんで&quot;, &quot;まって&quot;]}, {&quot;id&quot;: 19, &quot;en&quot;: &quot;use&quot;, &quot;d&quot;: &quot;つかう&quot;, &quot;m&quot;: &quot;つかいます&quot;, &quot;t&quot;: &quot;つかって&quot;, &quot;g&quot;: 1, &quot;teChoices&quot;: [&quot;つかいて&quot;, &quot;つかって&quot;, &quot;つかうて&quot;, &quot;つかんで&quot;]}, {&quot;id&quot;: 20, &quot;en&quot;: &quot;make, cook&quot;, &quot;d&quot;: &quot;つくる&quot;, &quot;m&quot;: &quot;つくります&quot;, &quot;t&quot;: &quot;つくって&quot;, &quot;g&quot;: 1, &quot;teChoices&quot;: [&quot;つくりて&quot;, &quot;つくいて&quot;, &quot;つくって&quot;, &quot;つくんで&quot;]}, {&quot;id&quot;: 21, &quot;en&quot;: &quot;wash&quot;, &quot;d&quot;: &quot;あらう&quot;, &quot;m&quot;: &quot;あらいます&quot;, &quot;t&quot;: &quot;あらって&quot;, &quot;g&quot;: 1, &quot;teChoices&quot;: [&quot;あらいて&quot;, &quot;あって&quot;, &quot;あいて&quot;, &quot;あらって&quot;]}, {&quot;id&quot;: 22, &quot;en&quot;: &quot;clean&quot;, &quot;d&quot;: &quot;そうじする&quot;, &quot;m&quot;: &quot;そうじします&quot;, &quot;t&quot;: &quot;そうじして&quot;, &quot;g&quot;: 3, &quot;teChoices&quot;: [&quot;そうじんで&quot;, &quot;そうじいて&quot;, &quot;そうじって&quot;, &quot;そうじして&quot;]}, {&quot;id&quot;: 23, &quot;en&quot;: &quot;open&quot;, &quot;d&quot;: &quot;あける&quot;, &quot;m&quot;: &quot;あけます&quot;, &quot;t&quot;: &quot;あけて&quot;, &quot;g&quot;: 2, &quot;teChoices&quot;: [&quot;あけいて&quot;, &quot;あけって&quot;, &quot;あって&quot;, &quot;あけて&quot;]}, {&quot;id&quot;: 24, &quot;en&quot;: &quot;close&quot;, &quot;d&quot;: &quot;しめる&quot;, &quot;m&quot;: &quot;しめます&quot;, &quot;t&quot;: &quot;しめて&quot;, &quot;g&quot;: 2, &quot;teChoices&quot;: [&quot;しめんて&quot;, &quot;しめて&quot;, &quot;しめって&quot;, &quot;しめいて&quot;]}, {&quot;id&quot;: 25, &quot;en&quot;: &quot;get on (a train)&quot;, &quot;d&quot;: &quot;のる&quot;, &quot;m&quot;: &quot;のります&quot;, &quot;t&quot;: &quot;のって&quot;, &quot;g&quot;: 1, &quot;teChoices&quot;: [&quot;のりて&quot;, &quot;のいて&quot;, &quot;のって&quot;, &quot;のんで&quot;]}, {&quot;id&quot;: 26, &quot;en&quot;: &quot;get off (a train)&quot;, &quot;d&quot;: &quot;おりる&quot;, &quot;m&quot;: &quot;おります&quot;, &quot;t&quot;: &quot;おりて&quot;, &quot;g&quot;: 2, &quot;teChoices&quot;: [&quot;おりって&quot;, &quot;おりいて&quot;, &quot;おりて&quot;, &quot;おりんて&quot;]}, {&quot;id&quot;: 27, &quot;en&quot;: &quot;walk&quot;, &quot;d&quot;: &quot;あるく&quot;, &quot;m&quot;: &quot;あるきます&quot;, &quot;t&quot;: &quot;あるいて&quot;, &quot;g&quot;: 1, &quot;teChoices&quot;: [&quot;あるいて&quot;, &quot;あるって&quot;, &quot;あるんて&quot;, &quot;あるて&quot;]}, {&quot;id&quot;: 28, &quot;en&quot;: &quot;take (a photo)&quot;, &quot;d&quot;: &quot;とる&quot;, &quot;m&quot;: &quot;とります&quot;, &quot;t&quot;: &quot;とって&quot;, &quot;g&quot;: 1, &quot;teChoices&quot;: [&quot;とって&quot;, &quot;とりて&quot;, &quot;といて&quot;, &quot;とんで&quot;]}, {&quot;id&quot;: 29, &quot;en&quot;: &quot;give&quot;, &quot;d&quot;: &quot;あげる&quot;, &quot;m&quot;: &quot;あげます&quot;, &quot;t&quot;: &quot;あげて&quot;, &quot;g&quot;: 2, &quot;teChoices&quot;: [&quot;あげて&quot;, &quot;あげって&quot;, &quot;あって&quot;, &quot;あげんて&quot;]}, {&quot;id&quot;: 30, &quot;en&quot;: &quot;receive&quot;, &quot;d&quot;: &quot;もらう&quot;, &quot;m&quot;: &quot;もらいます&quot;, &quot;t&quot;: &quot;もらって&quot;, &quot;g&quot;: 1, &quot;teChoices&quot;: [&quot;もらいて&quot;, &quot;もらって&quot;, &quot;もらうて&quot;, &quot;もらんで&quot;]}];
+const FORM_LABEL={d:'Dictionary Form',m:'Masu Form',t:'Te Form'};
+let mode='flash',items=[],index=0,score=0,front=true,missed=[],lastCount=30,review=false,locked=false;
+let verbFlipped=[false,false,false];
+const $=id=&gt;document.getElementById(id);
+function shuffle(a){a=[...a];for(let i=a.length-1;i&gt;0;i--){let j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
+function chooseMode(m){mode=m;$('flashTab').classList.toggle('active',m==='flash');$('quizTab').classList.toggle('active',m==='quiz');$('subtitle').textContent=m==='flash'?'English → Japanese (Dictionary / Masu / Te)':'Choose the correct conjugation';$('wrongCountDisplay').textContent='';}
+function backToMenu(){$('menuScreen').style.display='block';$('quizContainer').style.display='none';$('flashArea').style.display='none';$('metaRow').style.display='none';$('controlsArea').style.display='none';$('result').style.display='none';$('message').textContent='';}
+function start(n){review=false;lastCount=n;missed=[];let pool=n===30?[...V]:shuffle(V).slice(0,n);items=mode==='flash'?pool:shuffle(pool.map(v=&gt;({...v,form:['d','m','t'][Math.floor(Math.random()*3)]})));index=0;score=0;begin();}
+function startReview(){if(!missed.length){$('wrongCountDisplay').textContent='No missed cards yet — start a round first.';return;}review=true;items=shuffle([...missed]);index=0;score=0;begin();}
+function begin(){$('menuScreen').style.display='none';$('result').style.display='none';$('quizContainer').style.display=mode==='quiz'?'block':'none';$('flashArea').style.display=mode==='flash'?'block':'none';$('metaRow').style.display='flex';$('controlsArea').style.display='flex';$('scoreTitle').textContent=mode==='flash'?'Known':'Score';$('unitTitle').textContent=mode==='flash'?'Card':'Q';showCard();}
+
+const ROMA_BASE={あ:'a',い:'i',う:'u',え:'e',お:'o',か:'ka',き:'ki',く:'ku',け:'ke',こ:'ko',さ:'sa',し:'shi',す:'su',せ:'se',そ:'so',た:'ta',ち:'chi',つ:'tsu',て:'te',と:'to',な:'na',に:'ni',ぬ:'nu',ね:'ne',の:'no',は:'ha',ひ:'hi',ふ:'fu',へ:'he',ほ:'ho',ま:'ma',み:'mi',む:'mu',め:'me',も:'mo',や:'ya',ゆ:'yu',よ:'yo',ら:'ra',り:'ri',る:'ru',れ:'re',ろ:'ro',わ:'wa',を:'wo',ん:'n',が:'ga',ぎ:'gi',ぐ:'gu',げ:'ge',ご:'go',ざ:'za',じ:'ji',ず:'zu',ぜ:'ze',ぞ:'zo',だ:'da',ぢ:'ji',づ:'zu',で:'de',ど:'do',ば:'ba',び:'bi',ぶ:'bu',べ:'be',ぼ:'bo',ぱ:'pa',ぴ:'pi',ぷ:'pu',ぺ:'pe',ぽ:'po'};
+const ROMA_PAIR={きゃ:'kya',きゅ:'kyu',きょ:'kyo',しゃ:'sha',しゅ:'shu',しょ:'sho',ちゃ:'cha',ちゅ:'chu',ちょ:'cho',にゃ:'nya',にゅ:'nyu',にょ:'nyo',ひゃ:'hya',ひゅ:'hyu',ひょ:'hyo',みゃ:'mya',みゅ:'myu',みょ:'myo',りゃ:'rya',りゅ:'ryu',りょ:'ryo',ぎゃ:'gya',ぎゅ:'gyu',ぎょ:'gyo',じゃ:'ja',じゅ:'ju',じょ:'jo',びゃ:'bya',びゅ:'byu',びょ:'byo',ぴゃ:'pya',ぴゅ:'pyu',ぴょ:'pyo'};
+function kanaRomaji(word){let out='';for(let i=0;i&lt;word.length;i++){let c=word[i],pair=word.slice(i,i+2);if(c==='っ'){let next=ROMA_PAIR[word.slice(i+1,i+3)]||ROMA_BASE[word[i+1]]||'';out+=next.startsWith('ch')?'t':next[0]||'';continue;}if(ROMA_PAIR[pair]){out+=ROMA_PAIR[pair];i++;continue;}if(c==='ん'){let next=ROMA_BASE[word[i+1]]||'';out+=/^[aiueoy]/.test(next)?&quot;n'&quot;:'n';continue;}out+=ROMA_BASE[c]||c;}return out;}
+function showRomaji(){return $('romajiMode').checked;}
+function refreshRomaji(){updateView();if(mode==='quiz'){for(const b of $('answers').querySelectorAll('.answer')){let r=b.querySelector('.answer-rom');if(r)r.remove();if(showRomaji()&amp;&amp;items[index]?.form!=='m'){r=document.createElement('span');r.className='answer-rom';r.textContent=kanaRomaji(b.dataset.answer);b.append(r);}}}}
+
+function updateView(){if(index&gt;=items.length)return;let v=items[index];if(mode==='flash'){$('flashEnglish').textContent=v.en;$('flashGroup').textContent='Group '+v.g;['d','m','t'].forEach((f,i)=&gt;{$('flashFace'+i).textContent=verbFlipped[i]?v[f]:'?';let r=$('flashRom'+i);if(!r){r=document.createElement('span');r.id='flashRom'+i;r.className='verb-flash-rom';$('flashFace'+i).insertAdjacentElement('afterend',r);}r.textContent=verbFlipped[i]&amp;&amp;showRomaji()?kanaRomaji(v[f]):'';$('flashHint'+i).textContent=verbFlipped[i]?'Tap to hide':'👆 Tap to flip';$('flashCard'+i).classList.toggle('flipped',verbFlipped[i]);$('flashCard'+i).setAttribute('aria-label',FORM_LABEL[f]+(verbFlipped[i]?': '+v[f]:', tap to reveal'));});}else{$('verbGroup').textContent='Group '+v.g;$('sideLabel').textContent=v.form==='m'?'Masu Form → Meaning':FORM_LABEL[v.form]+' Quiz';$('question').textContent=v.form==='m'?v.m:v.m;$('romaji').textContent=(showRomaji()?kanaRomaji(v.m)+' · ':'')+(v.form==='m'?'Choose the correct English meaning':'Choose the correct '+FORM_LABEL[v.form].toLowerCase());$('tapHint').style.display='none';}}
+function showCard(){locked=false;$('message').textContent='';$('scoreCorrect').textContent=score;$('scoreAttempted').textContent=index;$('qNum').textContent=Math.min(index+1,items.length);$('qTotal').textContent=items.length;if(index&gt;=items.length){finish();return;}verbFlipped=[false,false,false];updateView();$('answers').innerHTML='';if(mode==='quiz'){let v=items[index];let opts=makeChoices(v,v.form);for(const s of opts){let b=document.createElement('button');b.className='answer';b.dataset.answer=s;b.textContent=s;if(v.form!=='m'&amp;&amp;showRomaji()){let r=document.createElement('span');r.className='answer-rom';r.textContent=kanaRomaji(s);b.append(r);}b.onclick=()=&gt;chooseAnswer(b,s===(v.form==='m'?v.en:v[v.form]));$('answers').append(b);}}}
+function flipVerbCard(i){if(mode!=='flash'||index&gt;=items.length)return;verbFlipped[i]=!verbFlipped[i];updateView();}
+function judge(known){if(mode!=='flash'||index&gt;=items.length)return;if(known)score++;else missed.push(items[index]);index++;showCard();}
+function makeChoices(v,f){
+ if(f==='m'){
+   const others=shuffle([...new Set(V.filter(x=&gt;x.id!==v.id).map(x=&gt;x.en))]).slice(0,3);
+   return shuffle([v.en,...others]);
+ }
+ if(f==='t' &amp;&amp; v.teChoices.length===4 &amp;&amp; new Set(v.teChoices).size===4 &amp;&amp; v.teChoices.includes(v.t))return shuffle(v.teChoices);
+ const correct=v[f];
+ const stem=v.m.slice(0,-3);
+ let candidates=[];
+ if(f==='t'){
+   candidates=[stem+'て',stem+'で',stem+'って',stem+'いて',stem+'いで',stem+'んで',stem+'して',stem+'ちて',stem+'りて',stem+'びて',stem+'みて',stem+'きて',stem+'るて'];
+ }else{
+   candidates=[stem+'る',stem+'う',stem+'く',stem+'ぐ',stem+'す',stem+'つ',stem+'ぬ',stem+'ぶ',stem+'む',stem+'いる',stem+'える',stem+'する'];
+ }
+ let distractors=shuffle([...new Set(candidates)].filter(x=&gt;x!==correct &amp;&amp; x!==v.m &amp;&amp; x.length&gt;=2)).slice(0,3);
+ return shuffle([correct,...distractors]);
+}
+function chooseAnswer(button,correct){if(locked)return;locked=true;let v=items[index];for(let b of $('answers').children){b.disabled=true;if(b.dataset.answer===(v.form==='m'?v.en:v[v.form]))b.classList.add('correct');}if(correct){score++;$('message').textContent='Correct!';}else{button.classList.add('wrong');$('message').textContent='Correct answer: '+(v.form==='m'?v.en:v[v.form]);missed.push(v);}setTimeout(()=&gt;{index++;showCard();},1000);}
+function finish(){$('flashArea').style.display='none';$('quizContainer').style.display='none';$('flashArea').style.display='none';$('metaRow').style.display='none';$('controlsArea').style.display='none';$('result').style.display='block';$('stars').textContent=score===items.length?'⭐⭐⭐⭐⭐':score&gt;=items.length*.8?'⭐⭐⭐⭐':score&gt;=items.length*.6?'⭐⭐⭐':'⭐⭐';$('finalScore').textContent=(mode==='flash'?'Known: ':'Score: ')+score+' / '+items.length;$('reviewHint').style.display=missed.length?'block':'none';$('reviewHint').textContent=missed.length?missed.length+' card(s) to review. Choose Review from the menu.':'';document.querySelector('.play-again').style.display='block';document.querySelector('.back-menu').style.display='block';}
+function restart(){start(lastCount);}
+
+(function(){const report=()=&gt;parent.postMessage({type:'sakura30verbs-height',height:document.documentElement.scrollHeight},'*');new ResizeObserver(report).observe(document.body);window.addEventListener('load',report);})();
+&lt;/script&gt;
+&lt;script&gt;
+/* Romaji add-on: shows romaji under the Japanese when &quot;Show Romaji&quot; is ticked. */
+(function(){
+  var R={&quot;たべる&quot;:&quot;taberu&quot;,&quot;たべます&quot;:&quot;tabemasu&quot;,&quot;たべて&quot;:&quot;tabete&quot;,&quot;のむ&quot;:&quot;nomu&quot;,&quot;のみます&quot;:&quot;nomimasu&quot;,&quot;のんで&quot;:&quot;nonde&quot;,&quot;かう&quot;:&quot;kau&quot;,&quot;かいます&quot;:&quot;kaimasu&quot;,&quot;かって&quot;:&quot;katte&quot;,&quot;かく&quot;:&quot;kaku&quot;,&quot;かきます&quot;:&quot;kakimasu&quot;,&quot;かいて&quot;:&quot;kaite&quot;,&quot;みる&quot;:&quot;miru&quot;,&quot;みます&quot;:&quot;mimasu&quot;,&quot;みて&quot;:&quot;mite&quot;,&quot;きく&quot;:&quot;kiku&quot;,&quot;ききます&quot;:&quot;kikimasu&quot;,&quot;きいて&quot;:&quot;kiite&quot;,&quot;よむ&quot;:&quot;yomu&quot;,&quot;よみます&quot;:&quot;yomimasu&quot;,&quot;よんで&quot;:&quot;yonde&quot;,&quot;はなす&quot;:&quot;hanasu&quot;,&quot;はなします&quot;:&quot;hanashimasu&quot;,&quot;はなして&quot;:&quot;hanashite&quot;,&quot;いく&quot;:&quot;iku&quot;,&quot;いきます&quot;:&quot;ikimasu&quot;,&quot;いって&quot;:&quot;itte&quot;,&quot;くる&quot;:&quot;kuru&quot;,&quot;きます&quot;:&quot;kimasu&quot;,&quot;きて&quot;:&quot;kite&quot;,&quot;かえる&quot;:&quot;kaeru&quot;,&quot;かえります&quot;:&quot;kaerimasu&quot;,&quot;かえって&quot;:&quot;kaette&quot;,&quot;おきる&quot;:&quot;okiru&quot;,&quot;おきます&quot;:&quot;okimasu&quot;,&quot;おきて&quot;:&quot;okite&quot;,&quot;ねる&quot;:&quot;neru&quot;,&quot;ねます&quot;:&quot;nemasu&quot;,&quot;ねて&quot;:&quot;nete&quot;,&quot;はたらく&quot;:&quot;hataraku&quot;,&quot;はたらきます&quot;:&quot;hatarakimasu&quot;,&quot;はたらいて&quot;:&quot;hataraite&quot;,&quot;べんきょうする&quot;:&quot;benkyou suru&quot;,&quot;べんきょうします&quot;:&quot;benkyou shimasu&quot;,&quot;べんきょうして&quot;:&quot;benkyou shite&quot;,&quot;する&quot;:&quot;suru&quot;,&quot;します&quot;:&quot;shimasu&quot;,&quot;して&quot;:&quot;shite&quot;,&quot;あう&quot;:&quot;au&quot;,&quot;あいます&quot;:&quot;aimasu&quot;,&quot;あって&quot;:&quot;atte&quot;,&quot;まつ&quot;:&quot;matsu&quot;,&quot;まちます&quot;:&quot;machimasu&quot;,&quot;まって&quot;:&quot;matte&quot;,&quot;つかう&quot;:&quot;tsukau&quot;,&quot;つかいます&quot;:&quot;tsukaimasu&quot;,&quot;つかって&quot;:&quot;tsukatte&quot;,&quot;つくる&quot;:&quot;tsukuru&quot;,&quot;つくります&quot;:&quot;tsukurimasu&quot;,&quot;つくって&quot;:&quot;tsukutte&quot;,&quot;あらう&quot;:&quot;arau&quot;,&quot;あらいます&quot;:&quot;araimasu&quot;,&quot;あらって&quot;:&quot;aratte&quot;,&quot;そうじする&quot;:&quot;souji suru&quot;,&quot;そうじします&quot;:&quot;souji shimasu&quot;,&quot;そうじして&quot;:&quot;souji shite&quot;,&quot;あける&quot;:&quot;akeru&quot;,&quot;あけます&quot;:&quot;akemasu&quot;,&quot;あけて&quot;:&quot;akete&quot;,&quot;しめる&quot;:&quot;shimeru&quot;,&quot;しめます&quot;:&quot;shimemasu&quot;,&quot;しめて&quot;:&quot;shimete&quot;,&quot;のる&quot;:&quot;noru&quot;,&quot;のります&quot;:&quot;norimasu&quot;,&quot;のって&quot;:&quot;notte&quot;,&quot;おりる&quot;:&quot;oriru&quot;,&quot;おります&quot;:&quot;orimasu&quot;,&quot;おりて&quot;:&quot;orite&quot;,&quot;あるく&quot;:&quot;aruku&quot;,&quot;あるきます&quot;:&quot;arukimasu&quot;,&quot;あるいて&quot;:&quot;aruite&quot;,&quot;とる&quot;:&quot;toru&quot;,&quot;とります&quot;:&quot;torimasu&quot;,&quot;とって&quot;:&quot;totte&quot;,&quot;あげる&quot;:&quot;ageru&quot;,&quot;あげます&quot;:&quot;agemasu&quot;,&quot;あげて&quot;:&quot;agete&quot;,&quot;もらう&quot;:&quot;morau&quot;,&quot;もらいます&quot;:&quot;moraimasu&quot;,&quot;もらって&quot;:&quot;moratte&quot;};
+  function $(id){return document.getElementById(id);}
+  var faces=[0,1,2].map(function(i){var f=$('flashFace'+i);var r=document.createElement('span');r.className='verb-flash-rom';f.insertAdjacentElement('afterend',r);return [f,r];});
+  var q=$('question'),qr=document.createElement('div');qr.className='question-rom';q.insertAdjacentElement('afterend',qr);
+  function on(){var c=$('romajiMode');return !c||c.checked;}
+  function sync(){faces.forEach(function(p){p[1].textContent=on()&amp;&amp;R[p[0].textContent]?R[p[0].textContent]:'';});qr.textContent=on()&amp;&amp;R[q.textContent]?R[q.textContent]:'';}
+  var mo=new MutationObserver(sync);faces.forEach(function(p){mo.observe(p[0],{childList:true,characterData:true,subtree:true});});mo.observe(q,{childList:true,characterData:true,subtree:true});
+  var c=$('romajiMode');if(c)c.addEventListener('change',sync);
+  sync();
+})();
+&lt;/script&gt;
+&lt;/body&gt;&lt;/html&gt;" title="30 Japanese Verbs Flashcards and Conjugation Quiz"></iframe></div></div></div></section>
+<section class="section" id="study-sheet"><div class="container"><div class="sheet-head"><div class="section-heading"><span class="step"><svg aria-hidden="true" fill="none" viewbox="0 0 48 48"><path d="M24 12C18 8.5 10 8 5 10V36C11 34 18 34.5 24 38C30 34.5 37 34 43 36V10C38 8 30 8.5 24 12Z" stroke="currentColor" stroke-linejoin="round" stroke-width="3.2"></path><path d="M24 12V38" stroke="currentColor" stroke-linecap="round" stroke-width="3"></path></svg></span><h2>Study sheet</h2><p>The three forms and an example sentence, 10 verbs at a time.</p></div><div aria-label="Verb numbers" class="tabs" role="tablist"><button aria-controls="panel-0" aria-selected="true" id="tab-0" role="tab" tabindex="0" type="button">01–10</button><button aria-controls="panel-1" aria-selected="false" id="tab-1" role="tab" tabindex="-1" type="button">11–20</button><button aria-controls="panel-2" aria-selected="false" id="tab-2" role="tab" tabindex="-1" type="button">21–30</button></div></div>
+<div aria-labelledby="tab-0" class="verb-list" id="panel-0" role="tabpanel"><article class="verb"><div class="verb-top"><span class="verb-no">01</span><h3>eat</h3><span class="verb-group">Group 2</span></div><div class="forms"><div class="form"><span class="form-label">Dictionary Form</span><strong lang="ja">たべる</strong><small>taberu</small></div><div class="form"><span class="form-label">Masu Form</span><strong lang="ja">たべます</strong><small>tabemasu</small></div><div class="form"><span class="form-label">Te Form</span><strong lang="ja">たべて</strong><small>tabete</small></div></div><div class="example"><p class="ex-label">Example</p><p class="ex-en">I eat bread for breakfast every day.</p><p class="ex-jp" lang="ja"><span class="chunk">まいにち</span>　<span class="chunk">あさごはんに</span>　<span class="chunk">パンを</span>　<span class="chunk"><span class="hl">たべます</span>。</span></p><p class="ex-rom">Mainichi, asagohan ni pan o tabemasu.</p></div></article><article class="verb"><div class="verb-top"><span class="verb-no">02</span><h3>drink</h3><span class="verb-group">Group 1</span></div><div class="forms"><div class="form"><span class="form-label">Dictionary Form</span><strong lang="ja">のむ</strong><small>nomu</small></div><div class="form"><span class="form-label">Masu Form</span><strong lang="ja">のみます</strong><small>nomimasu</small></div><div class="form"><span class="form-label">Te Form</span><strong lang="ja">のんで</strong><small>nonde</small></div></div><div class="example"><p class="ex-label">Example</p><p class="ex-en">Yesterday, I drank coffee with a friend at a café.</p><p class="ex-jp" lang="ja"><span class="chunk">きのう</span>　<span class="chunk">カフェで</span>　<span class="chunk">ともだちと</span>　<span class="chunk">コーヒーを</span>　<span class="chunk"><span class="hl">のみました</span>。</span></p><p class="ex-rom">Kinou, kafe de tomodachi to koohii o nomimashita.</p></div></article><article class="verb"><div class="verb-top"><span class="verb-no">03</span><h3>buy</h3><span class="verb-group">Group 1</span></div><div class="forms"><div class="form"><span class="form-label">Dictionary Form</span><strong lang="ja">かう</strong><small>kau</small></div><div class="form"><span class="form-label">Masu Form</span><strong lang="ja">かいます</strong><small>kaimasu</small></div><div class="form"><span class="form-label">Te Form</span><strong lang="ja">かって</strong><small>katte</small></div></div><div class="example"><p class="ex-label">Example</p><p class="ex-en">I buy vegetables at the supermarket every Tuesday.</p><p class="ex-jp" lang="ja"><span class="chunk">まいしゅう</span>　<span class="chunk">かようびに</span>　<span class="chunk">スーパーで</span>　<span class="chunk">やさいを</span>　<span class="chunk"><span class="hl">かいます</span>。</span></p><p class="ex-rom">Maishuu, kayoubi ni suupaa de yasai o kaimasu.</p></div></article><article class="verb"><div class="verb-top"><span class="verb-no">04</span><h3>write</h3><span class="verb-group">Group 1</span></div><div class="forms"><div class="form"><span class="form-label">Dictionary Form</span><strong lang="ja">かく</strong><small>kaku</small></div><div class="form"><span class="form-label">Masu Form</span><strong lang="ja">かきます</strong><small>kakimasu</small></div><div class="form"><span class="form-label">Te Form</span><strong lang="ja">かいて</strong><small>kaite</small></div></div><div class="example"><p class="ex-label">Example</p><p class="ex-en">I always write in my diary at night.</p><p class="ex-jp" lang="ja"><span class="chunk">いつも</span>　<span class="chunk">よる</span>　<span class="chunk">にっきを</span>　<span class="chunk"><span class="hl">かきます</span>。</span></p><p class="ex-rom">Itsumo yoru nikki o kakimasu.</p></div></article><article class="verb"><div class="verb-top"><span class="verb-no">05</span><h3>watch</h3><span class="verb-group">Group 2</span></div><div class="forms"><div class="form"><span class="form-label">Dictionary Form</span><strong lang="ja">みる</strong><small>miru</small></div><div class="form"><span class="form-label">Masu Form</span><strong lang="ja">みます</strong><small>mimasu</small></div><div class="form"><span class="form-label">Te Form</span><strong lang="ja">みて</strong><small>mite</small></div></div><div class="example"><p class="ex-label">Example</p><p class="ex-en">I watch movies with my friends on weekends.</p><p class="ex-jp" lang="ja"><span class="chunk">しゅうまつに</span>　<span class="chunk">ともだちと</span>　<span class="chunk">えいがを</span>　<span class="chunk"><span class="hl">みます</span>。</span></p><p class="ex-rom">Shuumatsu ni tomodachi to eiga o mimasu.</p></div></article><article class="verb"><div class="verb-top"><span class="verb-no">06</span><h3>listen</h3><span class="verb-group">Group 1</span></div><div class="forms"><div class="form"><span class="form-label">Dictionary Form</span><strong lang="ja">きく</strong><small>kiku</small></div><div class="form"><span class="form-label">Masu Form</span><strong lang="ja">ききます</strong><small>kikimasu</small></div><div class="form"><span class="form-label">Te Form</span><strong lang="ja">きいて</strong><small>kiite</small></div></div><div class="example"><p class="ex-label">Example</p><p class="ex-en">I listen to music on the train every morning.</p><p class="ex-jp" lang="ja"><span class="chunk">まいあさ</span>　<span class="chunk">でんしゃで</span>　<span class="chunk">おんがくを</span>　<span class="chunk"><span class="hl">ききます</span>。</span></p><p class="ex-rom">Maiasa, densha de ongaku o kikimasu.</p></div></article><article class="verb"><div class="verb-top"><span class="verb-no">07</span><h3>read</h3><span class="verb-group">Group 1</span></div><div class="forms"><div class="form"><span class="form-label">Dictionary Form</span><strong lang="ja">よむ</strong><small>yomu</small></div><div class="form"><span class="form-label">Masu Form</span><strong lang="ja">よみます</strong><small>yomimasu</small></div><div class="form"><span class="form-label">Te Form</span><strong lang="ja">よんで</strong><small>yonde</small></div></div><div class="example"><p class="ex-label">Example</p><p class="ex-en">I read a book in bed before I go to sleep.</p><p class="ex-jp" lang="ja"><span class="chunk">ねるまえに</span>　<span class="chunk">ベッドで</span>　<span class="chunk">ほんを</span>　<span class="chunk"><span class="hl">よみます</span>。</span></p><p class="ex-rom">Neru mae ni beddo de hon o yomimasu.</p></div></article><article class="verb"><div class="verb-top"><span class="verb-no">08</span><h3>speak</h3><span class="verb-group">Group 1</span></div><div class="forms"><div class="form"><span class="form-label">Dictionary Form</span><strong lang="ja">はなす</strong><small>hanasu</small></div><div class="form"><span class="form-label">Masu Form</span><strong lang="ja">はなします</strong><small>hanashimasu</small></div><div class="form"><span class="form-label">Te Form</span><strong lang="ja">はなして</strong><small>hanashite</small></div></div><div class="example"><p class="ex-label">Example</p><p class="ex-en">I speak Japanese with my friends every day.</p><p class="ex-jp" lang="ja"><span class="chunk">まいにち</span>　<span class="chunk">ともだちと</span>　<span class="chunk">にほんごで</span>　<span class="chunk"><span class="hl">はなします</span>。</span></p><p class="ex-rom">Mainichi, tomodachi to nihongo de hanashimasu.</p></div></article><article class="verb"><div class="verb-top"><span class="verb-no">09</span><h3>go</h3><span class="verb-group">Group 1</span></div><div class="forms"><div class="form"><span class="form-label">Dictionary Form</span><strong lang="ja">いく</strong><small>iku</small></div><div class="form"><span class="form-label">Masu Form</span><strong lang="ja">いきます</strong><small>ikimasu</small></div><div class="form"><span class="form-label">Te Form</span><strong lang="ja">いって</strong><small>itte</small></div></div><div class="example"><p class="ex-label">Example</p><p class="ex-en">Tomorrow, I will go to the park for a walk.</p><p class="ex-jp" lang="ja"><span class="chunk">あした</span>　<span class="chunk">こうえんに</span>　<span class="chunk">さんぽに</span>　<span class="chunk"><span class="hl">いきます</span>。</span></p><p class="ex-rom">Ashita, kouen ni sanpo ni ikimasu.</p></div></article><article class="verb"><div class="verb-top"><span class="verb-no">10</span><h3>come</h3><span class="verb-group">Group 3</span></div><div class="forms"><div class="form"><span class="form-label">Dictionary Form</span><strong lang="ja">くる</strong><small>kuru</small></div><div class="form"><span class="form-label">Masu Form</span><strong lang="ja">きます</strong><small>kimasu</small></div><div class="form"><span class="form-label">Te Form</span><strong lang="ja">きて</strong><small>kite</small></div></div><div class="example"><p class="ex-label">Example</p><p class="ex-en">My friend will come to my house next week.</p><p class="ex-jp" lang="ja"><span class="chunk">らいしゅう</span>　<span class="chunk">ともだちが</span>　<span class="chunk">わたしの</span>　<span class="chunk">いえに</span>　<span class="chunk"><span class="hl">きます</span>。</span></p><p class="ex-rom">Raishuu, tomodachi ga watashi no ie ni kimasu.</p></div></article></div><div aria-labelledby="tab-1" class="verb-list" hidden="" id="panel-1" role="tabpanel"><article class="verb"><div class="verb-top"><span class="verb-no">11</span><h3>go home</h3><span class="verb-group">Group 1</span></div><div class="forms"><div class="form"><span class="form-label">Dictionary Form</span><strong lang="ja">かえる</strong><small>kaeru</small></div><div class="form"><span class="form-label">Masu Form</span><strong lang="ja">かえります</strong><small>kaerimasu</small></div><div class="form"><span class="form-label">Te Form</span><strong lang="ja">かえって</strong><small>kaette</small></div></div><div class="example"><p class="ex-label">Example</p><p class="ex-en">I go home at around six every day.</p><p class="ex-jp" lang="ja"><span class="chunk">まいにち</span>　<span class="chunk">6じごろ</span>　<span class="chunk">いえに</span>　<span class="chunk"><span class="hl">かえります</span>。</span></p><p class="ex-rom">Mainichi, rokuji goro ie ni kaerimasu.</p></div></article><article class="verb"><div class="verb-top"><span class="verb-no">12</span><h3>wake up</h3><span class="verb-group">Group 2</span></div><div class="forms"><div class="form"><span class="form-label">Dictionary Form</span><strong lang="ja">おきる</strong><small>okiru</small></div><div class="form"><span class="form-label">Masu Form</span><strong lang="ja">おきます</strong><small>okimasu</small></div><div class="form"><span class="form-label">Te Form</span><strong lang="ja">おきて</strong><small>okite</small></div></div><div class="example"><p class="ex-label">Example</p><p class="ex-en">I wake up at seven every morning.</p><p class="ex-jp" lang="ja"><span class="chunk">まいあさ</span>　<span class="chunk">7じに</span>　<span class="chunk"><span class="hl">おきます</span>。</span></p><p class="ex-rom">Maiasa, shichiji ni okimasu.</p></div></article><article class="verb"><div class="verb-top"><span class="verb-no">13</span><h3>sleep</h3><span class="verb-group">Group 2</span></div><div class="forms"><div class="form"><span class="form-label">Dictionary Form</span><strong lang="ja">ねる</strong><small>neru</small></div><div class="form"><span class="form-label">Masu Form</span><strong lang="ja">ねます</strong><small>nemasu</small></div><div class="form"><span class="form-label">Te Form</span><strong lang="ja">ねて</strong><small>nete</small></div></div><div class="example"><p class="ex-label">Example</p><p class="ex-en">I go to bed at around eleven every night.</p><p class="ex-jp" lang="ja"><span class="chunk">まいばん</span>　<span class="chunk">11じごろに</span>　<span class="chunk"><span class="hl">ねます</span>。</span></p><p class="ex-rom">Maiban, juuichiji goro ni nemasu.</p></div></article><article class="verb"><div class="verb-top"><span class="verb-no">14</span><h3>work</h3><span class="verb-group">Group 1</span></div><div class="forms"><div class="form"><span class="form-label">Dictionary Form</span><strong lang="ja">はたらく</strong><small>hataraku</small></div><div class="form"><span class="form-label">Masu Form</span><strong lang="ja">はたらきます</strong><small>hatarakimasu</small></div><div class="form"><span class="form-label">Te Form</span><strong lang="ja">はたらいて</strong><small>hataraite</small></div></div><div class="example"><p class="ex-label">Example</p><p class="ex-en">I work at a company from Monday to Friday.</p><p class="ex-jp" lang="ja"><span class="chunk">げつようびから</span>　<span class="chunk">きんようびまで</span>　<span class="chunk">かいしゃで</span>　<span class="chunk"><span class="hl">はたらきます</span>。</span></p><p class="ex-rom">Getsuyoubi kara kin'youbi made kaisha de hatarakimasu.</p></div></article><article class="verb"><div class="verb-top"><span class="verb-no">15</span><h3>study</h3><span class="verb-group">Group 3</span></div><div class="forms"><div class="form"><span class="form-label">Dictionary Form</span><strong lang="ja">べんきょうする</strong><small>benkyou suru</small></div><div class="form"><span class="form-label">Masu Form</span><strong lang="ja">べんきょうします</strong><small>benkyou shimasu</small></div><div class="form"><span class="form-label">Te Form</span><strong lang="ja">べんきょうして</strong><small>benkyou shite</small></div></div><div class="example"><p class="ex-label">Example</p><p class="ex-en">I study Japanese at home every evening.</p><p class="ex-jp" lang="ja"><span class="chunk">まいばん</span>　<span class="chunk">いえで</span>　<span class="chunk">にほんごを</span>　<span class="chunk"><span class="hl">べんきょうします</span>。</span></p><p class="ex-rom">Maiban, ie de nihongo o benkyou shimasu.</p></div></article><article class="verb"><div class="verb-top"><span class="verb-no">16</span><h3>do</h3><span class="verb-group">Group 3</span></div><div class="forms"><div class="form"><span class="form-label">Dictionary Form</span><strong lang="ja">する</strong><small>suru</small></div><div class="form"><span class="form-label">Masu Form</span><strong lang="ja">します</strong><small>shimasu</small></div><div class="form"><span class="form-label">Te Form</span><strong lang="ja">して</strong><small>shite</small></div></div><div class="example"><p class="ex-label">Example</p><p class="ex-en">I play tennis with my friends every Sunday.</p><p class="ex-jp" lang="ja"><span class="chunk">まいしゅう</span>　<span class="chunk">にちようびに</span>　<span class="chunk">ともだちと</span>　<span class="chunk">テニスを</span>　<span class="chunk"><span class="hl">します</span>。</span></p><p class="ex-rom">Maishuu, nichiyoubi ni tomodachi to tenisu o shimasu.</p></div></article><article class="verb"><div class="verb-top"><span class="verb-no">17</span><h3>meet</h3><span class="verb-group">Group 1</span></div><div class="forms"><div class="form"><span class="form-label">Dictionary Form</span><strong lang="ja">あう</strong><small>au</small></div><div class="form"><span class="form-label">Masu Form</span><strong lang="ja">あいます</strong><small>aimasu</small></div><div class="form"><span class="form-label">Te Form</span><strong lang="ja">あって</strong><small>atte</small></div></div><div class="example"><p class="ex-label">Example</p><p class="ex-en">I will meet my friend at the station on Saturday.</p><p class="ex-jp" lang="ja"><span class="chunk">どようびに</span>　<span class="chunk">えきで</span>　<span class="chunk">ともだちと</span>　<span class="chunk"><span class="hl">あいます</span>。</span></p><p class="ex-rom">Doyoubi ni eki de tomodachi to aimasu.</p></div></article><article class="verb"><div class="verb-top"><span class="verb-no">18</span><h3>wait</h3><span class="verb-group">Group 1</span></div><div class="forms"><div class="form"><span class="form-label">Dictionary Form</span><strong lang="ja">まつ</strong><small>matsu</small></div><div class="form"><span class="form-label">Masu Form</span><strong lang="ja">まちます</strong><small>machimasu</small></div><div class="form"><span class="form-label">Te Form</span><strong lang="ja">まって</strong><small>matte</small></div></div><div class="example"><p class="ex-label">Example</p><p class="ex-en">I am waiting for the bus at the bus stop.</p><p class="ex-jp" lang="ja"><span class="chunk">バスていで</span>　<span class="chunk">バスを</span>　<span class="chunk"><span class="hl">まっています</span>。</span></p><p class="ex-rom">Basutei de basu o matte imasu.</p></div></article><article class="verb"><div class="verb-top"><span class="verb-no">19</span><h3>use</h3><span class="verb-group">Group 1</span></div><div class="forms"><div class="form"><span class="form-label">Dictionary Form</span><strong lang="ja">つかう</strong><small>tsukau</small></div><div class="form"><span class="form-label">Masu Form</span><strong lang="ja">つかいます</strong><small>tsukaimasu</small></div><div class="form"><span class="form-label">Te Form</span><strong lang="ja">つかって</strong><small>tsukatte</small></div></div><div class="example"><p class="ex-label">Example</p><p class="ex-en">I use a computer at work every day.</p><p class="ex-jp" lang="ja"><span class="chunk">まいにち</span>　<span class="chunk">しごとで</span>　<span class="chunk">パソコンを</span>　<span class="chunk"><span class="hl">つかいます</span>。</span></p><p class="ex-rom">Mainichi, shigoto de pasokon o tsukaimasu.</p></div></article><article class="verb"><div class="verb-top"><span class="verb-no">20</span><h3>make</h3><span class="verb-group">Group 1</span></div><div class="forms"><div class="form"><span class="form-label">Dictionary Form</span><strong lang="ja">つくる</strong><small>tsukuru</small></div><div class="form"><span class="form-label">Masu Form</span><strong lang="ja">つくります</strong><small>tsukurimasu</small></div><div class="form"><span class="form-label">Te Form</span><strong lang="ja">つくって</strong><small>tsukutte</small></div></div><div class="example"><p class="ex-label">Example</p><p class="ex-en">I will make a cake for today's lunch.</p><p class="ex-jp" lang="ja"><span class="chunk">きょうの</span>　<span class="chunk">おひるに</span>　<span class="chunk">ケーキを</span>　<span class="chunk"><span class="hl">つくります</span>。</span></p><p class="ex-rom">Kyou no ohiru ni keeki o tsukurimasu.</p></div></article></div><div aria-labelledby="tab-2" class="verb-list" hidden="" id="panel-2" role="tabpanel"><article class="verb"><div class="verb-top"><span class="verb-no">21</span><h3>wash</h3><span class="verb-group">Group 1</span></div><div class="forms"><div class="form"><span class="form-label">Dictionary Form</span><strong lang="ja">あらう</strong><small>arau</small></div><div class="form"><span class="form-label">Masu Form</span><strong lang="ja">あらいます</strong><small>araimasu</small></div><div class="form"><span class="form-label">Te Form</span><strong lang="ja">あらって</strong><small>aratte</small></div></div><div class="example"><p class="ex-label">Example</p><p class="ex-en">I wash my hands before cooking.</p><p class="ex-jp" lang="ja"><span class="chunk">りょうりの</span>　<span class="chunk">まえに</span>　<span class="chunk">てを</span>　<span class="chunk"><span class="hl">あらいます</span>。</span></p><p class="ex-rom">Ryouri no mae ni te o araimasu.</p></div></article><article class="verb"><div class="verb-top"><span class="verb-no">22</span><h3>clean</h3><span class="verb-group">Group 3</span></div><div class="forms"><div class="form"><span class="form-label">Dictionary Form</span><strong lang="ja">そうじする</strong><small>souji suru</small></div><div class="form"><span class="form-label">Masu Form</span><strong lang="ja">そうじします</strong><small>souji shimasu</small></div><div class="form"><span class="form-label">Te Form</span><strong lang="ja">そうじして</strong><small>souji shite</small></div></div><div class="example"><p class="ex-label">Example</p><p class="ex-en">I clean my room every Sunday.</p><p class="ex-jp" lang="ja"><span class="chunk">まいしゅう</span>　<span class="chunk">にちようびに</span>　<span class="chunk">へやを</span>　<span class="chunk"><span class="hl">そうじします</span>。</span></p><p class="ex-rom">Maishuu, nichiyoubi ni heya o souji shimasu.</p></div></article><article class="verb"><div class="verb-top"><span class="verb-no">23</span><h3>open</h3><span class="verb-group">Group 2</span></div><div class="forms"><div class="form"><span class="form-label">Dictionary Form</span><strong lang="ja">あける</strong><small>akeru</small></div><div class="form"><span class="form-label">Masu Form</span><strong lang="ja">あけます</strong><small>akemasu</small></div><div class="form"><span class="form-label">Te Form</span><strong lang="ja">あけて</strong><small>akete</small></div></div><div class="example"><p class="ex-label">Example</p><p class="ex-en">I open the window after I get up in the morning.</p><p class="ex-jp" lang="ja"><span class="chunk">あさ</span>　<span class="chunk">おきてから</span>　<span class="chunk">まどを</span>　<span class="chunk"><span class="hl">あけます</span>。</span></p><p class="ex-rom">Asa okite kara mado o akemasu.</p></div></article><article class="verb"><div class="verb-top"><span class="verb-no">24</span><h3>close</h3><span class="verb-group">Group 2</span></div><div class="forms"><div class="form"><span class="form-label">Dictionary Form</span><strong lang="ja">しめる</strong><small>shimeru</small></div><div class="form"><span class="form-label">Masu Form</span><strong lang="ja">しめます</strong><small>shimemasu</small></div><div class="form"><span class="form-label">Te Form</span><strong lang="ja">しめて</strong><small>shimete</small></div></div><div class="example"><p class="ex-label">Example</p><p class="ex-en">I close the door of my room before I go to bed.</p><p class="ex-jp" lang="ja"><span class="chunk">ねるまえに</span>　<span class="chunk">へやの</span>　<span class="chunk">ドアを</span>　<span class="chunk"><span class="hl">しめます</span>。</span></p><p class="ex-rom">Neru mae ni heya no doa o shimemasu.</p></div></article><article class="verb"><div class="verb-top"><span class="verb-no">25</span><h3>get on</h3><span class="verb-group">Group 1</span></div><div class="forms"><div class="form"><span class="form-label">Dictionary Form</span><strong lang="ja">のる</strong><small>noru</small></div><div class="form"><span class="form-label">Masu Form</span><strong lang="ja">のります</strong><small>norimasu</small></div><div class="form"><span class="form-label">Te Form</span><strong lang="ja">のって</strong><small>notte</small></div></div><div class="example"><p class="ex-label">Example</p><p class="ex-en">I get on the train at eight every morning.</p><p class="ex-jp" lang="ja"><span class="chunk">まいあさ</span>　<span class="chunk">8じに</span>　<span class="chunk">でんしゃに</span>　<span class="chunk"><span class="hl">のります</span>。</span></p><p class="ex-rom">Maiasa, hachiji ni densha ni norimasu.</p></div></article><article class="verb"><div class="verb-top"><span class="verb-no">26</span><h3>get off</h3><span class="verb-group">Group 2</span></div><div class="forms"><div class="form"><span class="form-label">Dictionary Form</span><strong lang="ja">おりる</strong><small>oriru</small></div><div class="form"><span class="form-label">Masu Form</span><strong lang="ja">おります</strong><small>orimasu</small></div><div class="form"><span class="form-label">Te Form</span><strong lang="ja">おりて</strong><small>orite</small></div></div><div class="example"><p class="ex-label">Example</p><p class="ex-en">I will get off the train at the next station.</p><p class="ex-jp" lang="ja"><span class="chunk">つぎの</span>　<span class="chunk">えきで</span>　<span class="chunk">でんしゃを</span>　<span class="chunk"><span class="hl">おります</span>。</span></p><p class="ex-rom">Tsugi no eki de densha o orimasu.</p></div></article><article class="verb"><div class="verb-top"><span class="verb-no">27</span><h3>walk</h3><span class="verb-group">Group 1</span></div><div class="forms"><div class="form"><span class="form-label">Dictionary Form</span><strong lang="ja">あるく</strong><small>aruku</small></div><div class="form"><span class="form-label">Masu Form</span><strong lang="ja">あるきます</strong><small>arukimasu</small></div><div class="form"><span class="form-label">Te Form</span><strong lang="ja">あるいて</strong><small>aruite</small></div></div><div class="example"><p class="ex-label">Example</p><p class="ex-en">Every evening, I walk to the park with my dog.</p><p class="ex-jp" lang="ja"><span class="chunk">まいばん</span>　<span class="chunk">いぬと</span>　<span class="chunk">いっしょに</span>　<span class="chunk">こうえんに</span>　<span class="chunk"><span class="hl">あるいて</span></span>　<span class="chunk">いきます。</span></p><p class="ex-rom">Maiban, inu to issho ni kouen ni aruite ikimasu.</p></div></article><article class="verb"><div class="verb-top"><span class="verb-no">28</span><h3>take</h3><span class="verb-group">Group 1</span></div><div class="forms"><div class="form"><span class="form-label">Dictionary Form</span><strong lang="ja">とる</strong><small>toru</small></div><div class="form"><span class="form-label">Masu Form</span><strong lang="ja">とります</strong><small>torimasu</small></div><div class="form"><span class="form-label">Te Form</span><strong lang="ja">とって</strong><small>totte</small></div></div><div class="example"><p class="ex-label">Example</p><p class="ex-en">I took a lot of beautiful photos on my trip.</p><p class="ex-jp" lang="ja"><span class="chunk">りょこうで</span>　<span class="chunk">たくさん</span>　<span class="chunk">きれいな</span>　<span class="chunk">しゃしんを</span>　<span class="chunk"><span class="hl">とりました</span>。</span></p><p class="ex-rom">Ryokou de takusan kirei na shashin o torimashita.</p></div></article><article class="verb"><div class="verb-top"><span class="verb-no">29</span><h3>give</h3><span class="verb-group">Group 2</span></div><div class="forms"><div class="form"><span class="form-label">Dictionary Form</span><strong lang="ja">あげる</strong><small>ageru</small></div><div class="form"><span class="form-label">Masu Form</span><strong lang="ja">あげます</strong><small>agemasu</small></div><div class="form"><span class="form-label">Te Form</span><strong lang="ja">あげて</strong><small>agete</small></div></div><div class="example"><p class="ex-label">Example</p><p class="ex-en">I gave my friend a present for their birthday.</p><p class="ex-jp" lang="ja"><span class="chunk">ともだちの</span>　<span class="chunk">たんじょうびに</span>　<span class="chunk">プレゼントを</span>　<span class="chunk"><span class="hl">あげました</span>。</span></p><p class="ex-rom">Tomodachi no tanjoubi ni purezento o agemashita.</p></div></article><article class="verb"><div class="verb-top"><span class="verb-no">30</span><h3>receive</h3><span class="verb-group">Group 1</span></div><div class="forms"><div class="form"><span class="form-label">Dictionary Form</span><strong lang="ja">もらう</strong><small>morau</small></div><div class="form"><span class="form-label">Masu Form</span><strong lang="ja">もらいます</strong><small>moraimasu</small></div><div class="form"><span class="form-label">Te Form</span><strong lang="ja">もらって</strong><small>moratte</small></div></div><div class="example"><p class="ex-label">Example</p><p class="ex-en">Yesterday, I received a souvenir from my friend.</p><p class="ex-jp" lang="ja"><span class="chunk">きのう</span>　<span class="chunk">ともだちに</span>　<span class="chunk">おみやげを</span>　<span class="chunk"><span class="hl">もらいました</span>。</span></p><p class="ex-rom">Kinou, tomodachi ni omiyage o moraimashita.</p></div></article></div>
+<div class="download"><div><strong>Print the full study sheet</strong><span>10 pages with all 30 verbs and example sentences</span></div><a class="button" download="30_japanese_verbs_study_sheet.pdf" href="30_japanese_verbs_study_sheet.pdf" id="pdf-link">Download PDF</a></div></div></section>
+</main>
+
+<script>
+/* Set the YouTube ID after publishing; keep your game/PDF paths here. */
+const LINKS={YOUTUBE_ID:'NBj9jCX2Veo',GAME_URL:'#practice',PDF_URL:'30_japanese_verbs_study_sheet.pdf'};
+
+document.getElementById('pdf-link').href=LINKS.PDF_URL;
+document.getElementById('game-link').href=LINKS.GAME_URL;
+/* YouTube iframe is in the HTML above; no JS replacement needed. */
+
+/* The embedded game reports its height so the frame has no inner scrollbar. */
+window.addEventListener('message',function(event){const frame=document.getElementById('embedded-game');if(event.source===frame.contentWindow&&event.data&&event.data.type==='sakura30verbs-height'){const doc=frame.contentDocument;/* measure the game's own content so the frame can also shrink */const h=doc&&doc.body?Math.ceil(doc.body.getBoundingClientRect().height):Number(event.data.height);if(Number.isFinite(h)&&h>200&&h<10000)frame.style.height=h+'px';}});
+
+/* Study sheet tabs: show 10 verbs at a time (no page reload). */
+(function(){
+  const tabs=[...document.querySelectorAll('[role=tab]')];
+  function select(tab){
+    tabs.forEach(t=>{const on=t===tab;t.setAttribute('aria-selected',on);t.tabIndex=on?0:-1;document.getElementById(t.getAttribute('aria-controls')).hidden=!on;});
+  }
+  tabs.forEach((t,i)=>{
+    t.addEventListener('click',()=>select(t));
+    t.addEventListener('keydown',e=>{
+      const k={ArrowRight:1,ArrowLeft:-1}[e.key];if(!k)return;e.preventDefault();
+      const n=tabs[(i+k+tabs.length)%tabs.length];select(n);n.focus();
+    });
+  });
+})();
+</script></body></html>
