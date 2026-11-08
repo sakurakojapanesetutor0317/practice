@@ -1,0 +1,688 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Free Japanese videos, interactive flashcards, quizzes and printable study sheets by Sakura Japanese.">
+<title>Free Japanese Practice | Sakura Japanese
+</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Quicksand:wght@500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --pink:#e34f91;
+  --pink2:#ff85b5;
+  --light:#fff0f6;
+  --cream:#fff9fc;
+  --purple:#80508b;
+  --brown:#64443e;
+  --muted:#815f76;
+  --border:#f4cfe1
+}
+* {
+  box-sizing:border-box
+}
+html {
+  scroll-behavior:smooth
+}
+body {
+  margin:0;
+  color:var(--brown);
+  font:600 16px/1.65 Quicksand,sans-serif;
+  background:linear-gradient(160deg,#fff5fa 0%,#ffeaf4 45%,#fff7fb 100%)
+}
+a {
+  color:inherit;
+  text-decoration:none
+}
+.wrap {
+  width:min(1120px,calc(100% - 36px));
+  margin:auto
+}
+header {
+  position:relative;
+  z-index:5;
+  background:rgba(255,250,253,.92);
+  border-bottom:1px solid #f5d7e6
+}
+.head {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  min-height:76px;
+  gap:20px
+}
+.brand {
+  font:800 23px 'Baloo 2',sans-serif;
+  color:var(--brown)
+}
+.brand .flower {
+  color:var(--pink);
+  font-size:27px;
+  vertical-align:middle
+}
+nav {
+  display:flex;
+  gap:26px;
+  font-size:14px;
+  color:var(--muted)
+}
+nav a:hover {
+  color:var(--pink)
+}
+.hero {
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+  padding:96px 0 104px;
+  background:radial-gradient(ellipse at 78% 35%,#ffd6e8 0%,transparent 48%),radial-gradient(ellipse at 14% 80%,#ffe2ef 0%,transparent 50%)
+}
+.hero:after {
+  content:"";
+  position:absolute;
+  bottom:-1px;
+  left:0;
+  width:100%;
+  height:55px;
+  background:#fffafc;
+  clip-path:ellipse(65% 70% at 50% 100%)
+}
+.petal {
+  position:absolute;
+  z-index:-1;
+  color:#f6a0c3;
+  opacity:.7;
+  font-size:36px;
+  transform:rotate(-25deg);
+  pointer-events:none
+}
+.petal.a {
+  top:35px;
+  left:7%
+}
+.petal.b {
+  top:105px;
+  right:7%;
+  font-size:58px
+}
+.petal.c {
+  bottom:55px;
+  left:48%;
+  font-size:27px
+}
+.petal.d {
+  bottom:85px;
+  right:29%;
+  font-size:24px
+}
+.hero-inner {
+  display:grid;
+  grid-template-columns:1.06fr .94fr;
+  align-items:center;
+  gap:55px
+}
+.eyebrow {
+  display:inline-block;
+  padding:7px 18px;
+  background:#fff;
+  border:1px solid #f7c9df;
+  border-radius:100px;
+  color:var(--pink);
+  font-weight:800;
+  font-size:13px;
+  letter-spacing:.035em
+}
+.hero h1 {
+  font:800 clamp(44px,5.7vw,76px)/1.04 'Baloo 2',sans-serif;
+  color:var(--purple);
+  margin:24px 0 16px;
+  letter-spacing:-.025em
+}
+.hero h1 em {
+  font-style:normal;
+  color:var(--pink)
+}
+.hero p {
+  font-size:18px;
+  color:var(--muted);
+  max-width:560px;
+  margin:0 0 28px
+}
+.btn {
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  padding:13px 24px;
+  border-radius:999px;
+  background:var(--pink);
+  color:white;
+  font-weight:800;
+  box-shadow:0 5px 0 #f4b1cd;
+  transition:transform .15s
+}
+.btn:hover {
+  transform:translateY(-2px)
+}
+.btn.outline {
+  background:white;
+  color:var(--purple);
+  border:1px solid #edcde0;
+  box-shadow:none
+}
+.hero-buttons {
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px
+}
+.hero-art {
+  position:relative;
+  max-width:480px;
+  width:100%;
+  margin:auto
+}
+.art-card {
+  background:#fff;
+  border:2px solid #f6cde0;
+  border-radius:34px;
+  padding:30px;
+  box-shadow:13px 15px 0 #f9d7e7,0 18px 36px #d887a02a;
+  transform:rotate(2deg)
+}
+.art-top {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  color:var(--pink);
+  font-size:13px;
+  font-weight:800
+}
+.art-top span:last-child {
+  background:#fff0f7;
+  border-radius:50px;
+  padding:4px 12px
+}
+.conjugation-list {
+  margin:20px 0 4px
+}
+.conjugation-row {
+  display:grid;
+  grid-template-columns:158px minmax(0,1fr);
+  align-items:center;
+  gap:16px;
+  padding:13px 0
+}
+.conjugation-row+.conjugation-row {
+  border-top:1px dashed #f6dce8
+}
+.conjugation-label {
+  display:block;
+  background:#fff0f7;
+  border-radius:13px;
+  padding:8px 10px;
+  text-align:center;
+  color:var(--pink);
+  font-size:13px;
+  font-weight:800;
+  line-height:1.35
+}
+.conjugation-word {
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  min-width:0
+}
+.conjugation-word strong {
+  font:800 clamp(29px,3vw,40px)/1.25 'Baloo 2',sans-serif;
+  color:var(--brown);
+  white-space:nowrap
+}
+.conjugation-word small {
+  font-size:15px;
+  font-weight:700;
+  line-height:1.3;
+  color:var(--muted)
+}
+.art-sticker {
+  position:absolute;
+  right:-20px;
+  top:-36px;
+  background:#ff8cb9;
+  border:5px solid white;
+  color:white;
+  border-radius:50%;
+  width:100px;
+  height:100px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:0;
+  text-align:center;
+  line-height:1.05;
+  font:800 25px 'Baloo 2';
+  transform:rotate(12deg);
+  box-shadow:0 8px 15px #c86e952f
+}
+.art-sticker span {
+  display:block;
+  width:100%;
+  text-align:center
+}
+.ui-icon {
+  display:inline-block;
+  width:1.15em;
+  height:1.15em;
+  vertical-align:-.16em;
+  flex-shrink:0
+}
+.feature .ico .ui-icon {
+  width:25px;
+  height:25px
+}
+.coming-card .emoji .ui-icon {
+  width:29px;
+  height:29px
+}
+.art-blossom {
+  position:absolute;
+  left:-33px;
+  bottom:-25px;
+  font-size:83px;
+  color:#f57ead;
+  filter:drop-shadow(0 6px 0 #fff)
+}
+.features {
+  background:#fffafc;
+  padding:28px 0 38px
+}
+.feature-grid {
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:14px
+}
+.feature {
+  display:flex;
+  align-items:center;
+  gap:12px;
+  background:white;
+  border:1px solid #f6dce8;
+  border-radius:19px;
+  padding:16px
+}
+.feature .ico {
+  width:46px;
+  height:46px;
+  display:grid;
+  place-items:center;
+  background:#fff0f7;
+  border-radius:14px;
+  font-size:24px
+}
+.feature strong {
+  display:block;
+  color:var(--purple);
+  font-size:14px
+}
+.feature small {
+  display:block;
+  color:var(--muted);
+  font-size:12px;
+  line-height:1.4
+}
+.section {
+  padding:86px 0
+}
+.section-intro {
+  text-align:center;
+  margin:0 auto 36px
+}
+.kicker {
+  color:var(--pink);
+  font-weight:800;
+  font-size:13px;
+  letter-spacing:.12em;
+  text-transform:uppercase
+}
+.section h2 {
+  font:800 clamp(32px,4vw,44px)/1.15 'Baloo 2',sans-serif;
+  color:var(--purple);
+  margin:10px 0
+}
+.section-intro p {
+  color:var(--muted);
+  margin:0
+}
+.resource {
+  display:grid;
+  grid-template-columns:.85fr 1.15fr;
+  background:white;
+  border:1px solid var(--border);
+  border-radius:30px;
+  overflow:hidden;
+  box-shadow:0 15px 40px #b9658c19
+}
+.resource-art {
+  min-height:340px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+  background:linear-gradient(145deg,#ffd9e9,#f9e6fa)
+}
+.resource-art:before,.resource-art:after {
+  content:'✿';
+  position:absolute;
+  color:#f79ac2;
+  font-size:64px
+}
+.resource-art:before {
+  top:14px;
+  left:20px
+}
+.resource-art:after {
+  bottom:8px;
+  right:18px;
+  font-size:47px
+}
+.resource-demo {
+  position:relative;
+  z-index:1;
+  background:#fff;
+  border-radius:23px;
+  padding:22px 28px;
+  box-shadow:9px 10px 0 #eeb9d2;
+  transform:rotate(-5deg);
+  width:75%;
+  text-align:center
+}
+.resource-demo .number {
+  font:800 55px 'Baloo 2';
+  color:var(--pink);
+  line-height:1
+}
+.resource-demo .title {
+  font:800 24px 'Baloo 2';
+  color:var(--purple)
+}
+.resource-demo .tiny {
+  font-size:12px;
+  color:var(--muted);
+  margin-top:10px
+}
+.resource-copy {
+  padding:40px 42px;
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  justify-content:center
+}
+.pill {
+  display:inline-block;
+  background:#fff0f7;
+  border:1px solid #f7d3e3;
+  border-radius:99px;
+  padding:5px 13px;
+  color:var(--pink);
+  font-size:12px;
+  font-weight:800
+}
+.resource-copy h3 {
+  font:800 34px/1.15 'Baloo 2';
+  color:var(--brown);
+  margin:16px 0 10px
+}
+.resource-copy p {
+  color:var(--muted);
+  margin:0 0 19px
+}
+.mini-tags {
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  margin-bottom:26px
+}
+.mini-tags span {
+  font-size:12px;
+  background:#fdf3f9;
+  color:var(--purple);
+  padding:6px 10px;
+  border-radius:9px
+}
+.resource-actions {
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap
+}
+.support-wrap {
+  background:linear-gradient(110deg,#ffdbeb,#ffeef7);
+  border-top:1px solid #f8d4e6;
+  border-bottom:1px solid #f8d4e6
+}
+.support {
+  display:grid;
+  grid-template-columns:1fr auto;
+  align-items:center;
+  gap:30px;
+  padding:58px 0
+}
+.support h2 {
+  font:800 34px/1.2 'Baloo 2';
+  color:var(--purple);
+  margin:0 0 8px
+}
+.support p {
+  max-width:600px;
+  color:var(--muted);
+  margin:0
+}
+.coffee {
+  white-space:nowrap
+}
+footer {
+  padding:26px 0;
+  text-align:center;
+  color:var(--muted);
+  font-size:12px
+}
+@media(max-width:780px) {
+  .conjugation-row {
+  grid-template-columns:135px minmax(0,1fr);
+  gap:12px
+}
+.conjugation-label {
+  font-size:12px
+}
+.hero {
+  padding:65px 0 85px
+}
+.hero-inner {
+  grid-template-columns:1fr;
+  gap:55px
+}
+.hero-art {
+  max-width:390px
+}
+.feature-grid {
+  grid-template-columns:repeat(2,1fr)
+}
+.resource {
+  grid-template-columns:1fr
+}
+.resource-art {
+  min-height:260px
+}
+.resource-copy {
+  padding:30px
+}
+.support {
+  grid-template-columns:1fr;
+  gap:20px
+}
+.section {
+  padding:65px 0
+}
+}
+@media(max-width:480px) {
+  .conjugation-row {
+  grid-template-columns:112px minmax(0,1fr);
+  gap:10px
+}
+.conjugation-label {
+  font-size:11px;
+  padding:7px 5px
+}
+.conjugation-word strong {
+  font-size:29px
+}
+.conjugation-word small {
+  font-size:13px
+}
+.art-card {
+  padding:23px 17px
+}
+.head {
+  min-height:65px
+}
+.brand {
+  font-size:19px
+}
+nav {
+  gap:13px;
+  font-size:12px
+}
+.hero h1 {
+  font-size:47px
+}
+.feature-grid {
+  gap:9px
+}
+.feature {
+  padding:11px;
+  gap:7px
+}
+.feature .ico {
+  width:36px;
+  height:36px;
+  font-size:20px
+}
+.feature strong {
+  font-size:12px
+}
+.feature small {
+  font-size:10px
+}
+.art-sticker {
+  right:-8px;
+  top:-24px;
+  width:76px;
+  height:76px;
+  font-size:21px
+}
+.art-blossom {
+  left:-15px;
+  font-size:58px
+}
+.resource-copy h3 {
+  font-size:29px
+}
+}
+
+</style>
+</head>
+<body>
+<header>
+<div class="wrap head"><a class="brand" href="index.html"><span class="flower">✿</span> Sakura Japanese</a>
+<nav><a href="#resources">Resources</a><a href="#support">Support <svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8h13v7a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5V8ZM17 10h2a3 3 0 0 1 0 6h-2M8 3v2M12 3v2"/></svg></a>
+</nav>
+</div>
+</header>
+<main>
+<section class="hero"><span class="petal a">✿</span><span class="petal b">❀</span><span class="petal c">✿</span><span class="petal d">❀</span>
+<div class="wrap hero-inner">
+<div><span class="eyebrow">🌸 Learn • Practice • Grow</span><h1>Japanese practice<br>made <em>fun!</em></h1><p>Free Japanese videos, cute flashcards, interactive quizzes and study sheets — all in one place.</p>
+<div class="hero-buttons"><a class="btn" href="#resources">Explore free resources ↓</a><a class="btn outline" href="https://youtu.be/NBj9jCX2Veo" target="_blank" rel="noopener noreferrer">Watch our video ▶</a>
+</div>
+</div>
+<div class="hero-art" aria-label="Japanese verb conjugation preview">
+<div class="art-card">
+<div class="art-top"><span>✿ Japanese verbs</span><span>Beginner</span>
+</div>
+<div class="conjugation-list">
+<div class="conjugation-row"><span class="conjugation-label">Dictionary form</span>
+<div class="conjugation-word"><strong lang="ja">たべる</strong><small>taberu</small>
+</div>
+</div>
+<div class="conjugation-row"><span class="conjugation-label">Masu form</span>
+<div class="conjugation-word"><strong lang="ja">たべます</strong><small>tabemasu</small>
+</div>
+</div>
+<div class="conjugation-row"><span class="conjugation-label">Te form</span>
+<div class="conjugation-word"><strong lang="ja">たべて</strong><small>tabete</small>
+</div>
+</div>
+</div>
+</div>
+<div class="art-sticker"><span>30</span><span>Verbs</span>
+</div>
+<div class="art-blossom" aria-hidden="true">✿
+</div>
+</div>
+</div>
+</section>
+<section class="features">
+<div class="wrap feature-grid">
+<div class="feature"><span class="ico"><svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m10 8 6 4-6 4z"/></svg></span>
+<div><strong>Watch</strong><small>Learn with videos</small>
+</div>
+</div>
+<div class="feature"><span class="ico">🌸</span>
+<div><strong>Review</strong><small>Flip flashcards</small>
+</div>
+</div>
+<div class="feature"><span class="ico"><svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.5 9h11a4 4 0 0 1 3.8 3l1 5a2 2 0 0 1-3.2 2l-3-2H8l-3 2a2 2 0 0 1-3.2-2l1-5a4 4 0 0 1 3.7-3Z"/><path d="M7 12v5M4.5 14.5h5M16 13h.01M19 15h.01"/></svg></span>
+<div><strong>Practice</strong><small>Try interactive quizzes</small>
+</div>
+</div>
+<div class="feature"><span class="ico"><svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 2h7l5 5v15H7a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2Z"/><path d="M14 2v6h5M9 13h6M9 17h6"/></svg></span>
+<div><strong>Keep</strong><small>Download study sheets</small>
+</div>
+</div>
+</div>
+</section>
+<section class="section wrap" id="resources">
+<div class="section-intro"><span class="kicker">Free study materials</span><h2>Pick something to practice ✿</h2><p>Start with our first complete learning pack.</p>
+</div>
+<article class="resource">
+<div class="resource-art">
+<div class="resource-demo">
+<div class="number">30
+</div>
+<div class="title">Japanese Verbs
+</div>
+<div class="tiny">Dictionary · Masu · Te
+</div>
+</div>
+</div>
+<div class="resource-copy"><span class="pill">AVAILABLE NOW · BEGINNER</span><h3>30 Japanese Verbs</h3><p>Learn everyday verbs, review their three forms and test yourself. One lesson, four ways to practice!</p>
+<div class="mini-tags"><span>▶ Video</span><span>🌸 Flashcards</span><span><svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.5 9h11a4 4 0 0 1 3.8 3l1 5a2 2 0 0 1-3.2 2l-3-2H8l-3 2a2 2 0 0 1-3.2-2l1-5a4 4 0 0 1 3.7-3Z"/><path d="M7 12v5M4.5 14.5h5M16 13h.01M19 15h.01"/></svg> Quiz</span><span><svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 2h7l5 5v15H7a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2Z"/><path d="M14 2v6h5M9 13h6M9 17h6"/></svg> PDF</span>
+</div>
+<div class="resource-actions"><a class="btn" href="30-verbs.html">Open learning pack →</a><a class="btn outline" href="https://youtu.be/NBj9jCX2Veo" target="_blank" rel="noopener noreferrer">YouTube ↗</a>
+</div>
+</div>
+</article>
+</section>
+<section class="support-wrap" id="support">
+<div class="wrap support">
+<div><span class="kicker">A little support goes a long way</span><h2>Enjoying Sakura Japanese? <svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8h13v7a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5V8ZM17 10h2a3 3 0 0 1 0 6h-2M8 3v2M12 3v2"/></svg></h2><p>These resources are free to use. If they help you learn Japanese, you can support the creation of more videos, games and study materials.</p>
+</div>
+<a class="btn coffee" href="https://buymeacoffee.com/sakurakojapanese0317" target="_blank" rel="noopener noreferrer"><svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8h13v7a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5V8ZM17 10h2a3 3 0 0 1 0 6h-2M8 3v2M12 3v2"/></svg> Buy me a coffee</a>
+</div>
+</section>
+</main>
+<footer>Made with 🌸 by Sakura Japanese
+</footer>
+</body>
+</html>
